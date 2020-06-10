@@ -2,35 +2,31 @@ import React, { useState, useEffect } from 'react';
 import './Main.css';
 
 //Services 
-import footballAPI from '../../services/footballAPI'
+import footballAPI from '../../services/footballAPI';
+import newsAPI from '../../services/newsAPI';
 
 // Utils 
-import moment from 'moment'
+import moment from 'moment';
 
 // My Components
-import NewsCard from '../NewsCard/NewsCard';
-import TodaysAction from '../TodaysAction/TodaysAction';
+import FixtureList from '../FixtureList/FixtureList';
+import NewsList from '../NewsList/NewsList';
 
 const Main = ({ breakingNews }) => {
+  const [news, setNews] = useState([]);
   const [fixtures, setFixtures] = useState([])
-
+  
   useEffect(() => {
+    newsAPI.getBreakingNews()
+      .then(data => setNews(data.articles))
     footballAPI.getTodaysFixtures(moment().format("YYYY-MM-DD"))
       .then(fixtures => setFixtures(fixtures))
   }, [])
 
   return (
     <div className="Main">
-      <h2>Top News</h2>
-      <section className="cards"> 
-        {breakingNews.length ? 
-          breakingNews.slice(0, 3).map(article => {
-            return <NewsCard key={article.url} article={article}/>
-          })
-          : null 
-        }
-      </section>
-      <TodaysAction fixtures={fixtures}/>
+      <NewsList news={news} />
+      <FixtureList fixtures={fixtures}/>
     </div>
   )
 }

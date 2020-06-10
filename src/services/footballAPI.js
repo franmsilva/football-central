@@ -24,10 +24,7 @@ const getTodaysFixtures = (date) => {
         "x-rapidapi-key": API_KEY,
       }
     }
-  ).then(data => {
-    console.log(data);
-    return data.api.fixtures.filter(fixture => leagueIDs.includes(fixture.league_id))
-  })
+  ).then(data => data.api.fixtures.filter(fixture => leagueIDs.includes(fixture.league_id)))
 }
 
 module.exports = {
