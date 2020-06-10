@@ -2,7 +2,7 @@ import React from 'react';
 import './Navbar.css';
 
 // Evergreen Components
-import { Pane, Button, Text, Heading } from 'evergreen-ui'
+import { Pane, Button, Heading } from 'evergreen-ui'
 
 const Navbar = () => (
   <Pane display="flex" padding={16} background="tint2" borderRadius={3}>

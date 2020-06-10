@@ -1,9 +1,6 @@
 import React from 'react';
 import './Hero.css';
 
-// Assets
-import heroImg from '../../assets/hero.jpg'
-
 // Evergreen Components
 import { Button } from 'evergreen-ui'
 
