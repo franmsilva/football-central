@@ -14,7 +14,8 @@ const Navbar = () => (
       <Button marginRight={16}>La Liga</Button>
       <Button marginRight={16}>Serie A</Button>
       <Button marginRight={16}>Bundesliga</Button>
-      <Button marginRight={48}>Ligue 1</Button>
+      <Button marginRight={16}>Ligue 1</Button>
+      <Button marginRight={48}>Primeira Liga</Button>
       <Button>Login</Button>
     </Pane>
   </Pane>

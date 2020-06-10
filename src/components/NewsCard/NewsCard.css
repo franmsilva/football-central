@@ -29,10 +29,10 @@
 }
 
 .card {
-  margin-right: 25px;
+
   transition: all .4s cubic-bezier(0.175, 0.885, 0, 1);
   background-color: #fff;
-  width: 33.3%;
+  width: 30%;
   position: relative;
   border-radius: 12px;
   overflow: hidden;
@@ -82,6 +82,7 @@
 .card:hover .card__img--hover {
   height: 100%;
   opacity: 0.3;
+  z-index: 4;
 }
 
 .card:hover .card__info {

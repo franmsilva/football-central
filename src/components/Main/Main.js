@@ -4,22 +4,26 @@ import './Main.css';
 //Services 
 import footballAPI from '../../services/footballAPI'
 
+// Utils 
+import moment from 'moment'
+
 // My Components
 import NewsCard from '../NewsCard/NewsCard';
 import TodaysAction from '../TodaysAction/TodaysAction';
 
 const Main = ({ breakingNews }) => {
-  const [fixtures, setFixtures] = useState([]);
+  const [fixtures, setFixtures] = useState([])
 
   useEffect(() => {
-    footballAPI.getTodaysAction()
-      .then(data => setFixtures(data.api.fixtures))
+    footballAPI.getTodaysFixtures(moment().format("YYYY-MM-DD"))
+      .then(fixtures => setFixtures(fixtures))
   }, [])
 
   return (
     <div className="Main">
+      <h2>Top News</h2>
       <section className="cards"> 
-        {breakingNews ? 
+        {breakingNews.length ? 
           breakingNews.slice(0, 3).map(article => {
             return <NewsCard key={article.url} article={article}/>
           })

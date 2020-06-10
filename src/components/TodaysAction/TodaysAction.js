@@ -1,18 +1,21 @@
 import React from 'react';
 import './TodaysAction.css';
 
-// My Component 
+// My Components 
 import FixtureCard from '../FixtureCard/FixtureCard'
 
 const TodaysAction = ({ fixtures }) => (
   <div className="TodaysAction">
     <h2>Today's Action</h2>
-    {fixtures.length ? 
+    <div className="fixturecontainer" style={{display: "flex"}}>
+      {fixtures.length ? 
       fixtures.map(fixture => {
         return <FixtureCard key={fixture.fixture_id} fixture={fixture}/>
       })
       : null 
     }
+    </div>
+    
   </div>
 );
 

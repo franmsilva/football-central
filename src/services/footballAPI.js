@@ -12,9 +12,11 @@ const fetchRequest = (url, options = {}) => {
     }) 
 }
 
-const getTodaysAction = () => {
+const getTodaysFixtures = (date) => {
+  const leagueIDs = [766, 775, 524, 754, 525, 891];
+
   return fetchRequest (
-    'fixtures/league/766/2020-06-10',
+    `fixtures/date/${date}`,
     {
       "method": "GET",
       "headers": {
@@ -22,9 +24,12 @@ const getTodaysAction = () => {
         "x-rapidapi-key": API_KEY,
       }
     }
-  )
+  ).then(data => {
+    console.log(data);
+    return data.api.fixtures.filter(fixture => leagueIDs.includes(fixture.league_id))
+  })
 }
 
 module.exports = {
-  getTodaysAction
+  getTodaysFixtures
 }
