@@ -19,9 +19,9 @@ function App() {
         <Navbar />
         <Switch>
           <Route exact path='/' component={Main} />
-          <Route path='/league/:leagueID' component={League} /> 
+          <Route path='/league/:leagueID/:leagueName' component={League} /> 
           <Route path='/fixture/:fixtureID' component={Fixture} />
-          <Route path='/team' component={Team} />
+          <Route path='/team/:teamID/:leagueID/:teamName' component={Team} />
         </Switch>
         <Footer />
       </div>

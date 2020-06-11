@@ -9,7 +9,7 @@ const NewsList = ({news}) => (
       <h2>Top News</h2>
       <div className="cards"> 
         {news.length ? 
-          news.slice(0, 3).map(article => {
+          news.map(article => {
             return <NewsCard key={article.url} article={article}/>
           })
           : null 

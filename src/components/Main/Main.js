@@ -5,9 +5,6 @@ import './Main.css';
 import footballAPI from '../../services/footballAPI';
 import newsAPI from '../../services/newsAPI';
 
-// Utils 
-import moment from 'moment';
-
 // My Components
 import Hero from '../Hero/Hero';
 import FixtureList from '../FixtureList/FixtureList';
@@ -19,8 +16,8 @@ const Main = ({ breakingNews }) => {
   
   useEffect(() => {
     newsAPI.getBreakingNews()
-      .then(data => setNews(data.articles))
-    footballAPI.getTodaysFixtures(moment().format("YYYY-MM-DD"))
+      .then(articles => setNews(articles))
+    footballAPI.getTodaysFixtures()
       .then(fixtures => setFixtures(fixtures))
   }, [])
 
@@ -28,7 +25,7 @@ const Main = ({ breakingNews }) => {
     <div className="Main">
       <Hero /> 
       <a href id="main-body">
-        <NewsList news={news} />
+        <NewsList news={news.slice(0, 3)} />
         <FixtureList fixtures={fixtures}/>
       </a>
     </div>

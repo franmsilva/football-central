@@ -19,22 +19,22 @@ const Navbar = () => (
     </Pane>
     <Pane>
       <Button marginRight={16}>
-        <Link to='/league/524'>Premier League</Link>
+        <Link to='/league/524/Premier-League'>Premier League</Link>
       </Button>
       <Button marginRight={16}>
-        <Link to='/league/775'>La Liga</Link>
+        <Link to='/league/775/La-Liga'>La Liga</Link>
       </Button>
       <Button marginRight={16}>
-        <Link to='/league/891'>Serie A</Link>
+        <Link to='/league/891/Serie-A'>Serie A</Link>
       </Button>
       <Button marginRight={16}>
-        <Link to='/league/754'>Bundesliga</Link>
+        <Link to='/league/754/Bundesliga'>Bundesliga</Link>
       </Button>
       <Button marginRight={16}>
-        <Link to='/league/525'>Ligue 1</Link>
+        <Link to='/league/525/Ligue-1'>Ligue 1</Link>
       </Button>
       <Button marginRight={48}>
-        <Link to='/league/766'>Primeira Liga</Link>
+        <Link to='/league/766/Primeira-Liga'>Primeira Liga</Link>
       </Button>
       <Button>Login</Button>
     </Pane>

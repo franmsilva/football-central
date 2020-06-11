@@ -1,3 +1,7 @@
+// Utils 
+import moment from 'moment';
+
+// API Constants
 const BASE_URL = 'http://newsapi.org/v2';
 const API_KEY = process.env.REACT_APP_NEWS_API_KEY;
 
@@ -11,10 +15,26 @@ const fetchRequest = (url, options = {}) => {
     }) 
 }
 
-const getBreakingNews = () => {
-  return fetchRequest(`top-headlines?country=gb&category=sports&q=football&from=2020-06-05&apiKey=${API_KEY}`)
+const getBreakingNews = (date) => {
+  return fetchRequest(
+    `top-headlines?category=sports&q=football&from=${moment().format("YYYY-MM-DD")}&apiKey=${API_KEY}`
+    ).then(data => data.articles);
 }
 
-module.exports = {
-  getBreakingNews
+const getTeamNews = (teamName) => {
+  return fetchRequest(
+    `everything?q=${teamName}&from=${moment('2020-06-10').subtract(3, 'days').format("YYYY-MM-DD")}&to=${moment().format("YYYY-MM-DD")}&sortBy=popularity&apiKey=${API_KEY}`
+    ).then(data => data.articles.filter(article => article.title.includes(teamName)));
+}
+
+const getLeagueNews = (leagueName) => {
+  return fetchRequest(
+    `everything?q=${leagueName}&from=${moment('2020-06-10').subtract(3, 'days').format("YYYY-MM-DD")}&to=${moment().format("YYYY-MM-DD")}&sortBy=popularity&apiKey=${API_KEY}`
+    ).then(data => data.articles.slice(0, 10));
+}
+
+export default {
+  getBreakingNews,
+  getTeamNews,
+  getLeagueNews,
 }

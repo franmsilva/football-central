@@ -1,6 +1,7 @@
 .cards {
   width: 100%;
   display: flex;
+  flex-flow: row wrap;
   justify-content: space-between;
   display: -webkit-flex;
   justify-content: space-between;

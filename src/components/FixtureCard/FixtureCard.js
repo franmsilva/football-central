@@ -12,7 +12,7 @@ import {Pane, Heading } from 'evergreen-ui'
 
 const FixtureCard = ({ fixture }) => (
   <Pane width="33.3%" border> 
-    <Link to={`/league/${fixture.league_id}`}>
+    <Link to={`/league/${fixture.league_id}/${fixture.league.name}`}>
       <Pane display="flex" justifyContent="space-between" alignItems="center" padding={10}>
           <Pane display="flex" alignItems="center"> 
             <img alt='' src={fixture.league.logo} width={30} />

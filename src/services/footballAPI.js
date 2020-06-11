@@ -1,6 +1,11 @@
+// Utils 
+import moment from 'moment';
+
+// API Constants
 const BASE_URL = 'https://api-football-v1.p.rapidapi.com/v2';
 const API_KEY = process.env.REACT_APP_FOOTBALL_API_KEY;
 const API_HOST = process.env.REACT_APP_FOOTBALL_API_HOST;
+
 
 // Fetch Factory 
 const fetchRequest = (url, options = {}) => {
@@ -12,11 +17,11 @@ const fetchRequest = (url, options = {}) => {
     }) 
 }
 
-const getTodaysFixtures = (date) => {
+const getTodaysFixtures = () => {
   const leagueIDs = [766, 775, 524, 754, 525, 891];
 
   return fetchRequest (
-    `fixtures/date/${date}`,
+    `fixtures/date/${moment().format("YYYY-MM-DD")}`,
     {
       "method": "GET",
       "headers": {
@@ -27,6 +32,146 @@ const getTodaysFixtures = (date) => {
   ).then(data => data.api.fixtures.filter(fixture => leagueIDs.includes(fixture.league_id)))
 }
 
-module.exports = {
-  getTodaysFixtures
+const getFixtureData = (fixtureID) => {
+  return fetchRequest (
+    `fixtures/id/${fixtureID}`,
+    {
+      "method": "GET",
+      "headers": {
+        "x-rapidapi-host": API_HOST,
+        "x-rapidapi-key": API_KEY,
+      }
+    }
+  ).then(data => data.api.fixtures[0])
+}
+
+const getPredictions = (fixtureID) => {
+  return fetchRequest (
+    `predictions/${fixtureID}`,
+    {
+      "method": "GET",
+      "headers": {
+        "x-rapidapi-host": API_HOST,
+        "x-rapidapi-key": API_KEY,
+      }
+    }
+  ).then(data => data.api.predictions[0])
+}
+
+const getTeamInfo = (teamID) => {
+  return fetchRequest (
+    `/teams/team/${teamID}`,
+    {
+      "method": "GET",
+      "headers": {
+        "x-rapidapi-host": API_HOST,
+        "x-rapidapi-key": API_KEY,
+      }
+    }
+  ).then(data => data.api.teams[0])
+}
+
+const getTeamStats = (teamID, leagueID) => {
+  return fetchRequest (
+    `statistics/${leagueID}/${teamID}`,
+    {
+      "method": "GET",
+      "headers": {
+        "x-rapidapi-host": API_HOST,
+        "x-rapidapi-key": API_KEY,
+      }
+    }
+  ).then(data => data.api.statistics)
+}
+const getTeamFixtures = (teamID, leagueID) => {
+  return fetchRequest (
+    `fixtures/team/${teamID}/${leagueID}`,
+    {
+      "method": "GET",
+      "headers": {
+        "x-rapidapi-host": API_HOST,
+        "x-rapidapi-key": API_KEY,
+      }
+    }
+  ).then(data => data.api.fixtures)
+}
+
+const getTeamPlayers = (teamID, season) => {
+  return fetchRequest (
+    `players/squad/${teamID}/${season}`,
+    {
+      "method": "GET",
+      "headers": {
+        "x-rapidapi-host": API_HOST,
+        "x-rapidapi-key": API_KEY,
+      }
+    }
+  ).then(data => data.api.players)
+}
+
+const getLeagueInfo = (leagueID) => {
+  return fetchRequest (
+    `leagues/league/${leagueID}`,
+    {
+      "method": "GET",
+      "headers": {
+        "x-rapidapi-host": API_HOST,
+        "x-rapidapi-key": API_KEY,
+      }
+    }
+  ).then(data => data.api.leagues[0])
+}
+
+const getLeagueStandings = (leagueID) => {
+  return fetchRequest (
+    `leagueTable/${leagueID}`,
+    {
+      "method": "GET",
+      "headers": {
+        "x-rapidapi-host": API_HOST,
+        "x-rapidapi-key": API_KEY,
+      }
+    }
+  ).then(data => data.api.standings)
+}
+
+const getLeagueFixtures = (leagueID) => {
+  return fetchRequest (
+    `fixtures/league/${leagueID}`,
+    {
+      "method": "GET",
+      "headers": {
+        "x-rapidapi-host": API_HOST,
+        "x-rapidapi-key": API_KEY,
+      }
+    }
+  ).then(data => data.api.fixtures)
+}
+
+const getTopScorers = (leagueID) => {
+  return fetchRequest (
+    `topscorers/${leagueID}`,
+    {
+      "method": "GET",
+      "headers": {
+        "x-rapidapi-host": API_HOST,
+        "x-rapidapi-key": API_KEY,
+      }
+    }
+  ).then(data => data.api.topscorers.slice(0,20))
+}
+
+
+export default {
+  getTodaysFixtures,
+  getFixtureData,
+  getPredictions,
+  getTeamInfo,
+  getTeamStats,
+  getTeamFixtures,
+  getTeamPlayers,
+  getLeagueInfo,
+  getLeagueStandings,
+  getLeagueFixtures,
+  getTopScorers,
 }
