@@ -1,20 +1,31 @@
 import React from 'react';
 import './App.css';
 
+// Routing 
+import { BrowserRouter, Route, Switch } from 'react-router-dom'
+
 // Components 
 import Navbar from '../Navbar/Navbar';
-import Hero from '../Hero/Hero';
 import Main from '../Main/Main';
+import Fixture from '../Fixture/Fixture';
+import League from '../League/League';
+import Team from '../Team/Team';
 import Footer from '../Footer/Footer';
 
 function App() {
   return (
-    <div className="App">
-      <Navbar />
-      <Hero /> 
-      <Main />
-      <Footer />
-    </div>
+    <BrowserRouter>
+      <div>
+        <Navbar />
+        <Switch>
+          <Route exact path='/' component={Main} />
+          <Route path='/league/:leagueID' component={League} /> 
+          <Route path='/fixture/:fixtureID' component={Fixture} />
+          <Route path='/team' component={Team} />
+        </Switch>
+        <Footer />
+      </div>
+    </BrowserRouter>
   );
 }
 

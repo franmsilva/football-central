@@ -4,7 +4,7 @@ import './NewsCard.css';
 const NewsCard = ({ article }) => (
   <article className="card">
     <div className="card__img" style={{backgroundImage: `url(${article.urlToImage})`}}></div>
-    <a href={article.url} className="card_link">
+    <a href={article.url} rel="noopener noreferrer" target="_blank" className="card_link">
       <div className="card__img--hover"></div>
     </a>
     <div className="card__info">

@@ -10,7 +10,7 @@ const Footer = () => (
       LOGO HERE
     </Heading>
     <Heading size={300}>
-      &copy; <a href='https://github.com/fmsilva1996'>fmsilva</a> 2020
+      &copy; <a href='https://github.com/fmsilva1996' rel="noopener noreferrer" target="_blank">fmsilva</a> 2020
     </Heading>
   </Pane>
 );

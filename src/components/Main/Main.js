@@ -9,6 +9,7 @@ import newsAPI from '../../services/newsAPI';
 import moment from 'moment';
 
 // My Components
+import Hero from '../Hero/Hero';
 import FixtureList from '../FixtureList/FixtureList';
 import NewsList from '../NewsList/NewsList';
 
@@ -25,8 +26,11 @@ const Main = ({ breakingNews }) => {
 
   return (
     <div className="Main">
-      <NewsList news={news} />
-      <FixtureList fixtures={fixtures}/>
+      <Hero /> 
+      <a href id="main-body">
+        <NewsList news={news} />
+        <FixtureList fixtures={fixtures}/>
+      </a>
     </div>
   )
 }

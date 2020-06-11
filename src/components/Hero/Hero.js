@@ -9,7 +9,9 @@ const Hero = () => (
     <div className="Hero-Inner">
       <h1>The Home of European Football</h1>
       <h4>Get live scores, predictions and the latest news from the continent's top 5 leagues.</h4>
-      <Button>Today's Action...</Button>
+      <Button>
+        <a href="#main-body">Today's Action...</a>
+      </Button>
     </div>
   </section>
 );
