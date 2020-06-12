@@ -1,19 +1,17 @@
 import React from 'react';
 import './Hero.css';
 
-// Evergreen Components
-import { Button } from 'evergreen-ui'
-
 const Hero = () => (
-  <section className="Hero">
-    <div className="Hero-Inner">
-      <h1>The Home of European Football</h1>
-      <h4>Get live scores, predictions and the latest news from the continent's top 5 leagues.</h4>
-      <Button>
-        <a href="#main-body">Today's Action...</a>
-      </Button>
+  <div className="hero">
+    <h1>
+      <span>HOME OF EUROPEAN FOOTBALL</span><br />
+      Get live scores, predictions and the latest news from the continent's top domestic leagues
+    </h1>
+
+    <div class="mouse">
+      <span></span>
     </div>
-  </section>
+  </div>
 );
 
 export default Hero;

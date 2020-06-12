@@ -34,8 +34,6 @@ const League = () => {
       .then(fixtures => setLeagueFixtures(fixtures))
     footballAPI.getTopScorers(leagueID)
       .then(topScorers => setTopScorers(topScorers))
-    footballAPI.getTopScorers(leagueID)
-      .then(topScorers => setTopScorers(topScorers))
     newsAPI.getLeagueNews(leagueName)
       .then(news => setLeagueNews(news))
   }, [leagueID, leagueName])
@@ -43,16 +41,16 @@ const League = () => {
   const handleClick = (e) => {
     switch (e.target.name) {
       case 'topscorers': 
-        setSelected(<p>{JSON.stringify(topScorers)}</p>) // Team Stats Component
+        setSelected(<pre>{JSON.stringify(topScorers, undefined, 4)}</pre>) // Top Scorers Component
         break;
       case 'fixtures':
-        setSelected(<FixtureList fixtures={leagueFixtures} />)
+        setSelected(<FixtureList fixtures={leagueFixtures} />) // Organise fixtures by rounds
         break;
       case 'standings':
-        setSelected(<p>{JSON.stringify(leagueStandings)}</p>)
+        setSelected(<pre>{JSON.stringify(leagueStandings, undefined, 4)}</pre>) // League Table Component
         break;
       default: 
-        setSelected(<NewsList news={leagueNews} />)
+        setSelected(<NewsList news={leagueNews} />) // Also render latest results??
         break;
     }
   }

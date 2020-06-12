@@ -5,7 +5,7 @@ import './App.css';
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
 
 // Components 
-import Navbar from '../Navbar/Navbar';
+import NavbarV2 from '../NavbarV2/NavbarV2';
 import Main from '../Main/Main';
 import Fixture from '../Fixture/Fixture';
 import League from '../League/League';
@@ -15,15 +15,15 @@ import Footer from '../Footer/Footer';
 function App() {
   return (
     <BrowserRouter>
-      <div>
-        <Navbar />
+      <div className="App">
+        <NavbarV2 />
         <Switch>
           <Route exact path='/' component={Main} />
           <Route path='/league/:leagueID/:leagueName' component={League} /> 
           <Route path='/fixture/:fixtureID' component={Fixture} />
           <Route path='/team/:teamID/:leagueID/:teamName' component={Team} />
         </Switch>
-        <Footer />
+        <Footer /> {/*TODO: FIX FOOTER POSITION ON LOADING*/}
       </div>
     </BrowserRouter>
   );

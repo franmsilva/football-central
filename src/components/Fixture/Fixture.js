@@ -69,7 +69,9 @@ const Fixture = () => {
             </Pane>
           </Pane>
           <Pane>
-            <Heading size={500}>Match Predictions</Heading>
+            <Heading size={700}>Fixture Data</Heading>
+            <pre>{JSON.stringify(fixtureData, undefined, 4)}</pre>
+            <Heading size={700}>Match Predictions</Heading>
             <h4>{predictions.advice}</h4>
           </Pane>
         </>

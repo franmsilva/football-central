@@ -42,13 +42,13 @@ const Team = () => {
   const handleClick = (e) => {
     switch (e.target.name) {
       case 'stats': 
-        setSelected(<p>{JSON.stringify(teamStats)}</p>) // Team Stats Component
+        setSelected(<pre>{JSON.stringify(teamStats, undefined, 4)}</pre>) // Team Stats Component
         break;
       case 'fixtures':
-        setSelected(<FixtureList fixtures={teamFixtures} />)
+        setSelected(<FixtureList fixtures={teamFixtures} />) // Organise fixtures by date/time
         break;
       case 'squad':
-        setSelected(<p>{JSON.stringify(teamPlayers)}</p>) // Player List & Player Card Components
+        setSelected(<pre>{JSON.stringify(teamPlayers, undefined, 4)}</pre>) // Player List & Player Card Components
         break;
       default: 
         setSelected(<NewsList news={teamNews} />)
@@ -78,8 +78,8 @@ const Team = () => {
             <Pane>
               <Button name='news' marginRight={16} onClick={handleClick}>News</Button>
               <Button name='stats' marginRight={16} onClick={handleClick}>Stats</Button>
-              <Button name='fixtures' marginRight={16} onClick={handleClick}>Fixtures</Button>
               <Button name='squad' marginRight={16} onClick={handleClick}>Squad</Button>
+              <Button name='fixtures' marginRight={16} onClick={handleClick}>Fixtures</Button>
             </Pane>
             <Pane >
               {selected ?
