@@ -1,11 +1,6 @@
-.cards {
-  width: 100%;
+.NewsList {
   display: flex;
   flex-flow: row wrap;
-  justify-content: space-between;
-  display: -webkit-flex;
-  justify-content: space-between;
-  -webkit-justify-content: center;
-  max-width: 85%;
-  margin: auto;
+  justify-content: space-around;
+  width: 100%;
 }

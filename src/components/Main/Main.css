@@ -1,0 +1,11 @@
+.main-section {
+  width: 100%;
+  max-width: 1150px;
+  margin: 0px auto;
+}
+
+.main-section h2 {
+  font-size: 30px;
+  font-family: 'Open Sans';
+  font-weight: 600;
+}

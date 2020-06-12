@@ -8,8 +8,10 @@ import newsAPI from '../../services/newsAPI';
 // My Components
 import MainSpinner from '../MainSpinner/MainSpinner';
 import Hero from '../Hero/Hero';
-import FixtureList from '../FixtureList/FixtureList';
 import NewsList from '../NewsList/NewsList';
+import FixtureList from '../FixtureList/FixtureList';
+import Footer from '../Footer/Footer';
+
 
 const Main = ({ breakingNews }) => {
   const [ready, setReady] = useState(false)
@@ -25,20 +27,24 @@ const Main = ({ breakingNews }) => {
   }, [])
 
   return (
-    <div className="Main">
+    <div>
       {ready 
         ? <React.Fragment> 
-            <Hero /> 
-            <a href id="main-body">
+            <Hero />
+            <div className='main-section'> 
+              <h2>Latest News</h2>
               <NewsList news={news.slice(0, 3)} />
+              <br />
+              <h2>Upcoming Action</h2>
               <FixtureList fixtures={fixtures}/>
-            </a>
+            </div>
+            <Footer />
           </React.Fragment> 
         : <MainSpinner />
       }
     </div>
+
   )
 }
-
 
 export default Main;

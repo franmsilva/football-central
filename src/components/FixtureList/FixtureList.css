@@ -1,10 +1,6 @@
 .FixtureList {
-  margin-bottom: 20px;
-}
-
-.FixtureContainer {
-  max-width: 85%;
   display: flex;
-  flex-wrap: wrap;
-  margin: 0px auto
+  flex-flow: row wrap;
+  justify-content: space-around;
+  margin-bottom: 40px;
 }

@@ -2,19 +2,16 @@ import React from 'react';
 import './NewsList.css';
 
 // My Components
-import NewsCard from '../NewsCard/NewsCard';
+import NewsCardV2 from '../NewsCardV2/NewsCardV2';
 
 const NewsList = ({news}) => (
   <div className="NewsList">
-      <h2>Top News</h2>
-      <div className="cards"> 
-        {news.length ? 
-          news.map(article => {
-            return <NewsCard key={article.url} article={article}/>
-          })
-          : null 
-        }
-      </div>
+    {news.length ? 
+      news.map(article => {
+        return <NewsCardV2 key={article.url} article={article}/>
+      })
+      : null 
+    }
   </div>
 );
 

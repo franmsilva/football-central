@@ -10,7 +10,6 @@ import Main from '../Main/Main';
 import Fixture from '../Fixture/Fixture';
 import League from '../League/League';
 import Team from '../Team/Team';
-import Footer from '../Footer/Footer';
 
 function App() {
   return (
@@ -23,7 +22,6 @@ function App() {
           <Route path='/fixture/:fixtureID' component={Fixture} />
           <Route path='/team/:teamID/:leagueID/:teamName' component={Team} />
         </Switch>
-        <Footer /> {/*TODO: FIX FOOTER POSITION ON LOADING*/}
       </div>
     </BrowserRouter>
   );

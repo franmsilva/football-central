@@ -6,14 +6,12 @@ import { useParams } from 'react-router-dom';
 
 // Services 
 import footballAPI from '../../services/footballAPI';
-
-// Evergreen Components
-import { Pane, Heading, Button } from 'evergreen-ui';
 import newsAPI from '../../services/newsAPI';
 
 // My Components
 import NewsList from '../NewsList/NewsList';
 import FixtureList from '../FixtureList/FixtureList';
+import MainSpinner from '../MainSpinner/MainSpinner';
 
 const League = () => {
   const { leagueID, leagueName } = useParams();
@@ -59,34 +57,29 @@ const League = () => {
     <div className="League">
       {leagueInfo.league_id ?
           <>
-            <Pane  marginTop={20}>
-              <Pane display="flex" alignItems="center">
-                <img alt="Home Team Logo" src={leagueInfo.logo} />
-                <Pane marginRight={50}>
-                  <Heading size={600}>TEAM</Heading>
-                  <Pane>{leagueInfo.name}</Pane>
-                </Pane>  
-                <Pane>
-                  <Pane>Country: {leagueInfo.country}</Pane>
-                  <Pane>Season Start: {leagueInfo.season_start}</Pane>
-                  <Pane>Season End: {leagueInfo.season_end}</Pane>
-                </Pane>
-              </Pane>
-            </Pane>
-            <Pane>
-              <Button name='news' marginRight={16} onClick={handleClick}>News</Button>
-              <Button name='standings' marginRight={16} onClick={handleClick}>Standings</Button>
-              <Button name='topscorers' marginRight={16} onClick={handleClick}>Top Scorers</Button>
-              <Button name='fixtures' marginRight={16} onClick={handleClick}>Fixtures</Button>
-            </Pane>
-            <Pane >
+            <div className='league__header'>
+              <div className='league__logo'>
+                <img alt="Home Team Logo" src={leagueInfo.logo} width={80}/>
+              </div>
+              <div className='league__details'>
+                <p>COMPETITION</p>
+                <h2>{leagueInfo.name}</h2>
+              </div>  
+            </div>
+            <div className="league__views borderXwidth">
+              <button name='news' onClick={handleClick}>News</button>
+              <button name='standings' onClick={handleClick}>Standings</button>
+              <button name='topscorers' onClick={handleClick}>Top Scorers</button>
+              <button name='fixtures' onClick={handleClick}>Fixtures</button>
+            </div>
+            <div className='league__view'>
               {selected ?
                 selected
                 : <NewsList news={leagueNews} />
               }
-            </Pane>
+            </div>
           </>
-          : <h1>Loading...</h1>
+          : <MainSpinner />
       }
     </div>
   );
