@@ -132,7 +132,7 @@ const getLeagueStandings = (leagueID) => {
         "x-rapidapi-key": API_KEY,
       }
     }
-  ).then(data => data.api.standings)
+  ).then(data => data.api.standings[0])
 }
 
 const getLeagueFixtures = (leagueID) => {

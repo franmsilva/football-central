@@ -38,7 +38,7 @@ const FixtureCard = ({ fixture }) => (
         </div>
         <div className='separator' />
         <div className='card__body__time'>
-          <p>{moment(fixture.event_date).format('LL')}</p>
+          <p>{moment(fixture.event_date).format('DD.MM.yyyy')}</p>
           <p>{moment(fixture.event_date).format('HH:mm')}</p>
         </div>
       </div>

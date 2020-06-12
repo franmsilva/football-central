@@ -22,7 +22,7 @@
 }
 
 .card__header p {
-  font-size: 12px;
+  font-size: 12px; 
   font-weight: 400;
   color: #66788A
 }
@@ -41,7 +41,7 @@
 }
 
 .card__body__teams {
-  width: 70%;
+  width: 80%;
 }
 
 .team {
@@ -75,7 +75,7 @@
 }
 
 .card__body__time {
-  width: 30%;
+  width: 20%;
   margin-left: 10px;
   display: flex;
   flex-direction: column;

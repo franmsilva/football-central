@@ -12,6 +12,7 @@ import newsAPI from '../../services/newsAPI';
 import NewsList from '../NewsList/NewsList';
 import FixtureList from '../FixtureList/FixtureList';
 import MainSpinner from '../MainSpinner/MainSpinner';
+import Table from '../Table/Table';
 
 const League = () => {
   const { leagueID, leagueName } = useParams();
@@ -45,7 +46,7 @@ const League = () => {
         setSelected(<FixtureList fixtures={leagueFixtures} />) // Organise fixtures by rounds
         break;
       case 'standings':
-        setSelected(<pre>{JSON.stringify(leagueStandings, undefined, 4)}</pre>) // League Table Component
+        setSelected(<Table standings={leagueStandings} leagueID={leagueID}/>)
         break;
       default: 
         setSelected(<NewsList news={leagueNews} />) // Also render latest results??
