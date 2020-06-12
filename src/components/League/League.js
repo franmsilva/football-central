@@ -13,6 +13,7 @@ import NewsList from '../NewsList/NewsList';
 import FixtureList from '../FixtureList/FixtureList';
 import MainSpinner from '../MainSpinner/MainSpinner';
 import Table from '../Table/Table';
+import TopScorers from '../TopScorers/TopScorers';
 
 const League = () => {
   const { leagueID, leagueName } = useParams();
@@ -37,10 +38,18 @@ const League = () => {
       .then(news => setLeagueNews(news))
   }, [leagueID, leagueName])
 
+  const getLeagueTeams = () => {
+    let teams = {}
+    for (let i = 0; i < leagueStandings.length; i++) {
+      teams[leagueStandings[i].teamName] = leagueStandings[i].logo 
+    }
+    return teams;
+  } 
+
   const handleClick = (e) => {
     switch (e.target.name) {
       case 'topscorers': 
-        setSelected(<pre>{JSON.stringify(topScorers, undefined, 4)}</pre>) // Top Scorers Component
+        setSelected(<TopScorers topscorers={topScorers} teams={getLeagueTeams()}/>) // Top Scorers Component
         break;
       case 'fixtures':
         setSelected(<FixtureList fixtures={leagueFixtures} />) // Organise fixtures by rounds

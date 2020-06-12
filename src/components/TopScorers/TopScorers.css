@@ -1,0 +1,51 @@
+.TopScorers {
+  width: 90%;
+  margin: 0px auto;
+}
+
+.topscorer__container {
+  font-family: 'Open Sans';
+  width: 100%;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  overflow: hidden;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #f9f9fb;
+  box-shadow: 0px 13px 10px -7px rgba(0, 0, 0,0.1);
+}
+
+.topscorer__player {
+  display: flex;
+  align-items: center;
+  line-height: 0px;
+}
+
+.topscorer__player img {
+  margin: 0 20px;
+}
+
+.topscorer__player span {
+  font-size: 30px;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-style: italic;
+  letter-spacing: 2px;
+}
+.topscorer__player p {
+  font-size: 25px;
+  font-weight: 400;
+}
+
+.topscorer__goals {
+  text-align: center;
+  height: 100px;
+  width: 100px;
+  background-color: rgb(91, 181, 100);
+  font-size: 50px;
+  font-weight: 600;
+  font-style: italic;
+  padding: 10px;
+
+}
