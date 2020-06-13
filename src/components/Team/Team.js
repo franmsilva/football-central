@@ -8,87 +8,72 @@ import { useParams } from 'react-router-dom';
 import footballAPI from '../../services/footballAPI';
 import newsAPI from '../../services/newsAPI';
 
-// Evergreen Components
-import { Pane, Heading, Button } from 'evergreen-ui';
-
 // My Components
 import NewsList from '../NewsList/NewsList';
 import FixtureList from '../FixtureList/FixtureList';
+import MainSpinner from '../MainSpinner/MainSpinner';
+import Squad from '../Squad/Squad';
 
 const Team = () => {
-  const { teamID, leagueID, teamName } = useParams();
+  const { teamID, leagueID, teamName, leagueName } = useParams();
 
   const [selected, setSelected] = useState()
   const [teamInfo, setTeamInfo] = useState({});
-  const [teamStats, setTeamStats] = useState({});
   const [teamFixtures, setTeamFixtures] = useState([]);
-  const [teamPlayers, setTeamPlayers] = useState([]);
+  const [playerStats, setPlayerStats] = useState([])
   const [teamNews, setTeamNews] = useState([]);
-
-  useEffect(() => {
-    footballAPI.getTeamInfo(teamID)
-      .then(team => setTeamInfo(team))
-    footballAPI.getTeamStats(teamID, leagueID)
-      .then(stats => setTeamStats(stats))
-    footballAPI.getTeamFixtures(teamID, leagueID)
-      .then(fixtures => setTeamFixtures(fixtures))
-    footballAPI.getTeamPlayers(teamID, '2019-2020')
-      .then(players => setTeamPlayers(players))
-    
-    newsAPI.getTeamNews(teamName)
-      .then(news => setTeamNews(news))
-  }, [teamID, leagueID, teamName])
 
   const handleClick = (e) => {
     switch (e.target.name) {
-      case 'stats': 
-        setSelected(<pre>{JSON.stringify(teamStats, undefined, 4)}</pre>) // Team Stats Component
-        break;
       case 'fixtures':
         setSelected(<FixtureList fixtures={teamFixtures} />) // Organise fixtures by date/time
         break;
       case 'squad':
-        setSelected(<pre>{JSON.stringify(teamPlayers, undefined, 4)}</pre>) // Player List & Player Card Components
+        setSelected(<Squad playerStats={playerStats} />) 
         break;
       default: 
         setSelected(<NewsList news={teamNews} />)
         break;
     }
   }
+      
+  useEffect(() => {
+    footballAPI.getTeamInfo(teamID)
+      .then(team => setTeamInfo(team))
+    footballAPI.getTeamFixtures(teamID, leagueID)
+      .then(fixtures => setTeamFixtures(fixtures))
+    footballAPI.getPlayerStatistics(teamID, '2019-2020', leagueName.replace('-', ' '))
+      .then(stats => setPlayerStats(stats))
+    newsAPI.getTeamNews(teamName)
+      .then(news => setTeamNews(news))
+  }, [teamID, leagueID, teamName, leagueName])
 
   return (
     <div className="Team">
       {teamInfo.team_id ?
-          <>
-            <Pane  marginTop={20}>
-              <Pane display="flex" alignItems="center">
-                <img alt="Home Team Logo" src={teamInfo.logo} />
-                <Pane marginRight={50}>
-                  <Heading size={600}>TEAM</Heading>
-                  <Pane>{teamInfo.name}</Pane>
-                </Pane>  
-                <Pane>
-                  <Pane>Country: {teamInfo.country}</Pane>
-                  <Pane>Founded: {teamInfo.founded}</Pane>
-                  <Pane>Venue Name & City: {`${teamInfo.venue_name}, ${teamInfo.venue_city}`}</Pane>
-                  <Pane>Venue Capacity: {teamInfo.venue_capacity}</Pane>
-                </Pane>
-              </Pane>
-            </Pane>
-            <Pane>
-              <Button name='news' marginRight={16} onClick={handleClick}>News</Button>
-              <Button name='stats' marginRight={16} onClick={handleClick}>Stats</Button>
-              <Button name='squad' marginRight={16} onClick={handleClick}>Squad</Button>
-              <Button name='fixtures' marginRight={16} onClick={handleClick}>Fixtures</Button>
-            </Pane>
-            <Pane >
+          <React.Fragment>
+            <div className='team__header'>
+              <div className='team__logo'>
+                <img alt="Home Team Logo" src={teamInfo.logo} width={100}/>
+              </div>
+              <div className='team__details'>
+                <p>TEAM</p>
+                <h2>{teamInfo.name}</h2> 
+              </div>
+            </div>
+            <div className="team__views borderXwidth">
+              <button name='news' onClick={handleClick}>News</button>
+              <button name='squad' onClick={handleClick}>Squad</button>
+              <button name='fixtures' onClick={handleClick}>Fixtures</button>
+            </div>
+            <div className='team__view'>
               {selected ?
                 selected
                 : <NewsList news={teamNews} />
               }
-            </Pane>
-          </>
-          : <h1>Loading...</h1>
+            </div>
+          </React.Fragment>
+          : <MainSpinner />
       }
     </div>
   );

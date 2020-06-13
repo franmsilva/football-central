@@ -31,9 +31,10 @@ const Fixture = () => {
     <div className="Fixture">
       {fixtureData.fixture_id ?
         <>
+          <pre>{JSON.stringify()}</pre>
           <Pane display="flex" justifyContent="space-around" textAlign="center" marginTop={20}>
             <Pane>
-              <Link to={`/team/${fixtureData.homeTeam.team_id}/${fixtureData.league_id}/${fixtureData.homeTeam.team_name}`}>
+              <Link to={`/team/${fixtureData.homeTeam.team_id}/${fixtureData.league_id}/${fixtureData.homeTeam.team_name}/${fixtureData.league.name}`}>
                 <Pane>
                   <img alt="Home Team Logo" src={fixtureData.homeTeam.logo} />
                   <Pane>{fixtureData.homeTeam.team_name}</Pane>
@@ -60,7 +61,7 @@ const Fixture = () => {
             </Pane>
             <Pane>
               <Pane>{fixtureData.goalsAwayTeam}</Pane>
-              <Link to={`/team/${fixtureData.awayTeam.team_id}/${fixtureData.league_id}/${fixtureData.awayTeam.team_name}`}>
+              <Link to={`/team/${fixtureData.awayTeam.team_id}/${fixtureData.league_id}/${fixtureData.awayTeam.team_name}/${fixtureData.league.name}`}>
                 <Pane>
                   <img alt="Away Team Logo" src={fixtureData.awayTeam.logo} />
                   <Pane>{fixtureData.awayTeam.team_name}</Pane>

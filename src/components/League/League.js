@@ -33,7 +33,7 @@ const League = () => {
     footballAPI.getLeagueFixtures(leagueID)
       .then(fixtures => setLeagueFixtures(fixtures))
     footballAPI.getTopScorers(leagueID)
-      .then(topScorers => setTopScorers(topScorers))
+      .then(topScorers => setTopScorers(topScorers.slice(0, 10)))
     newsAPI.getLeagueNews(leagueName)
       .then(news => setLeagueNews(news))
   }, [leagueID, leagueName])
@@ -49,13 +49,13 @@ const League = () => {
   const handleClick = (e) => {
     switch (e.target.name) {
       case 'topscorers': 
-        setSelected(<TopScorers topscorers={topScorers} teams={getLeagueTeams()}/>) // Top Scorers Component
+        setSelected(<TopScorers topscorers={topScorers} teams={getLeagueTeams()}/>) 
         break;
       case 'fixtures':
         setSelected(<FixtureList fixtures={leagueFixtures} />) // Organise fixtures by rounds
         break;
       case 'standings':
-        setSelected(<Table standings={leagueStandings} leagueID={leagueID}/>)
+        setSelected(<Table standings={leagueStandings} leagueID={leagueID} leagueName={leagueName}/>)
         break;
       default: 
         setSelected(<NewsList news={leagueNews} />) // Also render latest results??
@@ -66,7 +66,7 @@ const League = () => {
   return (
     <div className="League">
       {leagueInfo.league_id ?
-          <>
+          <React.Fragment>
             <div className='league__header'>
               <div className='league__logo'>
                 <img alt="Home Team Logo" src={leagueInfo.logo} width={80}/>
@@ -88,7 +88,7 @@ const League = () => {
                 : <NewsList news={leagueNews} />
               }
             </div>
-          </>
+          </React.Fragment>
           : <MainSpinner />
       }
     </div>

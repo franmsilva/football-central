@@ -20,7 +20,7 @@ function App() {
           <Route exact path='/' component={Main} />
           <Route path='/league/:leagueID/:leagueName' component={League} /> 
           <Route path='/fixture/:fixtureID' component={Fixture} />
-          <Route path='/team/:teamID/:leagueID/:teamName' component={Team} />
+          <Route path='/team/:teamID/:leagueID/:teamName/:leagueName' component={Team} />
         </Switch>
       </div>
     </BrowserRouter>

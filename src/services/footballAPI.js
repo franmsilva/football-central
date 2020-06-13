@@ -109,6 +109,19 @@ const getTeamPlayers = (teamID, season) => {
   ).then(data => data.api.players)
 }
 
+const getPlayerStatistics = (teamID, season, competition) => {
+  return fetchRequest (
+    `players/team/${teamID}`,
+    {
+      "method": "GET",
+      "headers": {
+        "x-rapidapi-host": API_HOST,
+        "x-rapidapi-key": API_KEY,
+      }
+    }
+  ).then(data => data.api.players.filter(player => player.league === competition && player.season === season))
+}
+
 const getLeagueInfo = (leagueID) => {
   return fetchRequest (
     `leagues/league/${leagueID}`,
@@ -158,9 +171,21 @@ const getTopScorers = (leagueID) => {
         "x-rapidapi-key": API_KEY,
       }
     }
-  ).then(data => data.api.topscorers.slice(0,20))
+  ).then(data => data.api.topscorers.slice(0,10))
 }
 
+const getCountries = () => {
+  return fetchRequest (
+    `countries`,
+    {
+      "method": "GET",
+      "headers": {
+        "x-rapidapi-host": API_HOST,
+        "x-rapidapi-key": API_KEY,
+      }
+    }
+  ).then(data => data.api.countries)
+}
 
 export default {
   getTodaysFixtures,
@@ -170,8 +195,10 @@ export default {
   getTeamStats,
   getTeamFixtures,
   getTeamPlayers,
+  getPlayerStatistics,
   getLeagueInfo,
   getLeagueStandings,
   getLeagueFixtures,
   getTopScorers,
+  getCountries,
 }
