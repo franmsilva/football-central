@@ -119,7 +119,7 @@ const getPlayerStatistics = (teamID, season, competition) => {
         "x-rapidapi-key": API_KEY,
       }
     }
-  ).then(data => data.api.players.filter(player => player.league === competition && player.season === season))
+  ).then(data => data.api.players.filter(player => player.league === competition && player.season === season && player.games.appearences > 0))
 }
 
 const getLeagueInfo = (leagueID) => {
