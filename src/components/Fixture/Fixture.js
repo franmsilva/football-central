@@ -4,16 +4,15 @@ import './Fixture.css';
 // Routing
 import { useParams, Link } from 'react-router-dom';
 
-// Utils 
-// import moment from 'moment'
-
 //Services
 import footballAPI from '../../services/footballAPI';
 
-// Evergreen Components
-import { Heading } from 'evergreen-ui';
-
 // My Components
+import FixtureStats from '../FixtureStats/FixtureStats';
+import LineUps from '../LineUps/LineUps';
+import Predictions from '../Predictions/Predictions';
+import MainSpinner from '../MainSpinner/MainSpinner';
+
 
 const Fixture = () => {
   const { fixtureID } = useParams();
@@ -45,59 +44,53 @@ const Fixture = () => {
   }
 
   return (
-    <div className="Fixture">
+    <div className="fixture">
       {fixtureData.fixture_id ?
         <React.Fragment>
-          <div className='Fixture__header'>
-            <div className='hometeam'>
+          <div className='fixture__header'>
+            <div className='fixture__team'>
               <Link to={`/team/${fixtureData.homeTeam.team_id}/${fixtureData.league_id}/${fixtureData.homeTeam.team_name}/${getLeagueName(fixtureData.league_id)}`}>
-                <div className='hometeam__details'>
-                  <img alt="Home Team Logo" src={fixtureData.homeTeam.logo} />
-                  <div>{fixtureData.homeTeam.team_name}</div>
+                <div className='team__details'>
+                  <img alt="" src={fixtureData.homeTeam.logo} width={125}/>
                 </div>
               </Link>
-              <div className='hometeam__score'>
+              <div className='team__score'>
                 {fixtureData.goalsHomeTeam}
               </div>
             </div>
-            <div>
+            <div className='fixture__details'>
               <Link to={`/league/${fixtureData.league_id}/${fixtureData.league.name}`}>
-                <img alt="League Logo" src={fixtureData.league.logo} />
+                <img alt="" src={fixtureData.league.logo} width={100}/>
               </Link>
-              <div>Matchday {fixtureData.round.split(' - ')[1]}</div>
-              <div>
-                {/* {fixtureData.status === "Not Started" 
-                  ? moment(fixtureData.event_date).format('LL')
-                  fixtureData.status === "Not Started" 
-                  ? moment(fixtureData.event_date).format('LL')
-                  : fixtureData.status === "Not Started"  */
-                }
-                MATCH STATUS
-              </div>
-              <div>{fixtureData.referee}</div>
-              <div>{fixtureData.venue}</div>
+              <div className='matchday'>Matchday {fixtureData.round.split(' - ')[1]}</div>
+              <div className='fixture__status'>MATCH STATUS</div>
+              <div><span>Referee:</span> {fixtureData.referee}</div>
+              <div><span>Venue:</span> {fixtureData.venue}</div>
             </div>
-            <div>
-              <div>{fixtureData.goalsAwayTeam}</div>
+            <div className='fixture__team'>
+              <div className='team__score'>{fixtureData.goalsAwayTeam}</div>
               <Link to={`/team/${fixtureData.awayTeam.team_id}/${fixtureData.league_id}/${fixtureData.awayTeam.team_name}/${getLeagueName(fixtureData.league_id)}`}>
-                <div>
-                  <img alt="Away Team Logo" src={fixtureData.awayTeam.logo} />
-                  <div>{fixtureData.awayTeam.team_name}</div>
+                <div className='team__details'>
+                  <img alt="" src={fixtureData.awayTeam.logo} width={125}/>
                 </div>
               </Link>
             </div>
           </div>
+          <div className="league__views borderXwidth">
+              <button name='overview'>Overview</button>
+              <button name='lineups'>Line-Ups</button>
+              <button name='predictions'>Predictions</button>
+            </div>
           <div>
-            <Heading size={700}>Fixture Data</Heading>
-            <pre>{JSON.stringify(fixtureData, undefined, 4)}</pre>
-            <Heading size={700}>Match Predictions</Heading>
-            <h4>{predictions.advice}</h4>
+            <FixtureStats statistics={fixtureData.statistics}/>
+            <LineUps homeTeam={fixtureData.lineups[fixtureData.homeTeam.team_name]} awayTeam={fixtureData.lineups[fixtureData.awayTeam.team_name]} />
+            <Predictions predictions={predictions} />
+
           </div>
         </React.Fragment>
-        : <h1>Loading</h1>
+        : <MainSpinner />
       }
     </div>
-      
   );
 }
 

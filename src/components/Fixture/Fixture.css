@@ -1,13 +1,62 @@
-.Fixture {
+.fixture {
   padding-top: 75px;
   width: 100%;
   max-width: 1150px;
   margin: 0px auto;
 }
 
-.Fixture__header {
+.fixture__header {
+  font-family: 'Open Sans';
   display: flex;
   justify-content: space-around;
+  align-items: center;
   text-align: center;
-  margin-top: 20px;
+  margin-top: 10px;
 }
+
+.fixture__team {
+  width: 30%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.fixture__details {
+  color: black;
+  font-size: 16px;
+  font-weight: 700;
+  width: 40%;
+}
+
+.matchday {
+  margin-top: 10px;
+}
+
+.fixture__details span {
+  color: #425A70;
+  font-weight: 300;
+  font-size: 14px;
+}
+
+.fixture__status {
+  margin: 15px 0px
+}
+
+.team__details {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  justify-content: center;
+  align-items: center;
+  background-color: #F9F9FB;
+}
+
+.team__details img {
+  margin: 15px 50px;  
+}
+
+.team__score {
+  font-size: 50px;
+  color: #425A70;
+}
+
