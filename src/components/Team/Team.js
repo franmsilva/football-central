@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './Team.css';
 
 // Routing
-import { useParams } from 'react-router-dom';
+import { useParams, Link, Switch, Route, useRouteMatch } from 'react-router-dom';
 
 // Services
 import footballAPI from '../../services/footballAPI';
@@ -15,27 +15,12 @@ import MainSpinner from '../MainSpinner/MainSpinner';
 import Squad from '../Squad/Squad';
 
 const Team = () => {
+  let { path, url } = useRouteMatch();
   const { teamID, leagueID, teamName, leagueName } = useParams();
-
-  const [selected, setSelected] = useState()
   const [teamInfo, setTeamInfo] = useState({});
   const [teamFixtures, setTeamFixtures] = useState([]);
   const [playerStats, setPlayerStats] = useState([])
   const [teamNews, setTeamNews] = useState([]);
-
-  const handleClick = (e) => {
-    switch (e.target.name) {
-      case 'fixtures':
-        setSelected(<FixtureList fixtures={teamFixtures} />) // Organise fixtures by date/time
-        break;
-      case 'squad':
-        setSelected(<Squad playerStats={playerStats} />) 
-        break;
-      default: 
-        setSelected(<NewsList news={teamNews} />)
-        break;
-    }
-  }
       
   useEffect(() => {
     footballAPI.getTeamInfo(teamID)
@@ -61,16 +46,26 @@ const Team = () => {
                 <h2>{teamInfo.name}</h2> 
               </div>
             </div>
-            <div className="team__views borderXwidth">
-              <button name='news' onClick={handleClick}>News</button>
-              <button name='squad' onClick={handleClick}>Squad</button>
-              <button name='fixtures' onClick={handleClick}>Fixtures</button>
+            <div className="team__views greenUnderline">
+              <Link to={`${url}/news`}>News</Link>
+              <Link to={`${url}/squad`}>Squad</Link>
+              <Link to={`${url}/fixtures`}>Fixtures</Link>
             </div>
-            <div className='team__view'>
-              {selected ?
-                selected
-                : <NewsList news={teamNews} />
-              }
+            <div>
+              <Switch>
+                <Route exact path={path}>
+                  <NewsList news={teamNews} />
+                </Route>
+                <Route path={`${path}/news`}>
+                  <NewsList news={teamNews} />
+                </Route>
+                <Route path={`${path}/squad`}>
+                  <Squad playerStats={playerStats} />
+                </Route>
+                <Route path={`${path}/fixtures`}>
+                  <FixtureList fixtures={teamFixtures} />
+                </Route>
+              </Switch>
             </div>
           </React.Fragment>
           : <MainSpinner />

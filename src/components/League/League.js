@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './League.css';
 
 // Routing
-import { useParams } from 'react-router-dom';
+import { useParams, Link, Switch, Route, useRouteMatch  } from 'react-router-dom';
 
 // Services 
 import footballAPI from '../../services/footballAPI';
@@ -16,8 +16,9 @@ import Table from '../Table/Table';
 import TopScorers from '../TopScorers/TopScorers';
 
 const League = () => {
-  const { leagueID, leagueName } = useParams();
+  let { path, url } = useRouteMatch();
 
+  const { leagueID, leagueName } = useParams();
   const [selected, setSelected] = useState('')
   const [leagueInfo, setLeagueInfo] = useState({});
   const [leagueStandings, setLeagueStandings] = useState([])
@@ -46,23 +47,6 @@ const League = () => {
     return teams;
   } 
 
-  const handleClick = (e) => {
-    switch (e.target.name) {
-      case 'topscorers': 
-        setSelected(<TopScorers topscorers={topScorers} teams={getLeagueTeams()}/>) 
-        break;
-      case 'fixtures':
-        setSelected(<FixtureList fixtures={leagueFixtures} />) // Organise fixtures by rounds
-        break;
-      case 'standings':
-        setSelected(<Table standings={leagueStandings} leagueID={leagueID} leagueName={leagueName}/>)
-        break;
-      default: 
-        setSelected(<NewsList news={leagueNews} />) // Also render latest results??
-        break;
-    }
-  }
-
   return (
     <div className="League">
       {leagueInfo.league_id ?
@@ -76,17 +60,30 @@ const League = () => {
                 <h2>{leagueInfo.name}</h2>
               </div>  
             </div>
-            <div className="league__views borderXwidth">
-              <button name='news' onClick={handleClick}>News</button>
-              <button name='standings' onClick={handleClick}>Standings</button>
-              <button name='topscorers' onClick={handleClick}>Top Scorers</button>
-              <button name='fixtures' onClick={handleClick}>Fixtures</button>
+            <div className="league__views greenUnderline">
+              <Link to={`${url}/news`}>News</Link>
+              <Link to={`${url}/standings`}>Standings</Link>
+              <Link to={`${url}/topscorers`}>Top Scorers</Link>
+              <Link to={`${url}/fixtures`}>Fixtures</Link>
             </div>
-            <div className='league__view'>
-              {selected ?
-                selected
-                : <NewsList news={leagueNews} />
-              }
+            <div >
+              <Switch>
+                <Route exact path={path}>
+                  <NewsList news={leagueNews} />
+                </Route>
+                <Route path={`${path}/news`}>
+                  <NewsList news={leagueNews} />
+                </Route>
+                <Route path={`${path}/standings`}>
+                  <Table standings={leagueStandings} leagueID={leagueID} leagueName={leagueName}/>
+                </Route>
+                <Route path={`${path}/topscorers`}>
+                  <TopScorers topscorers={topScorers} teams={getLeagueTeams()}/>
+                </Route>
+                <Route path={`${path}/fixtures`}>
+                  <FixtureList fixtures={leagueFixtures} />
+                </Route>
+              </Switch>
             </div>
           </React.Fragment>
           : <MainSpinner />
