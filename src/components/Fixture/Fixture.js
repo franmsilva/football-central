@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import './Fixture.css';
 
+// Utils
+import moment from 'moment';
+
 // Routing
 import { useParams, Link, Switch, Route, useRouteMatch } from 'react-router-dom';
 
@@ -67,6 +70,7 @@ const Fixture = () => {
               </Link>
               <div className='matchday'>Matchday {fixtureData.round.split(' - ')[1]}</div>
               <div className='fixture__status'>MATCH STATUS</div>
+              <div><span>Date:</span> {moment(fixtureData.event_date).format('DD.MM.YY')}</div>
               <div><span>Referee:</span> {fixtureData.referee}</div>
               <div><span>Venue:</span> {fixtureData.venue}</div>
             </div>
