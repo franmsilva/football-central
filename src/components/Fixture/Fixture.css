@@ -42,21 +42,69 @@
   margin: 15px 0px
 }
 
-.team__details {
+.fixture__team__details {
   width: 200px;
   height: 200px;
   border-radius: 50%;
+  display: flex;
   justify-content: center;
   align-items: center;
   background-color: #F9F9FB;
-}
-
-.team__details img {
-  margin: 15px 50px;  
+  margin: 0px 30px;
 }
 
 .team__score {
   font-size: 50px;
   color: #425A70;
 }
+
+.fixture__views {
+  display: flex;
+  padding: 15px 10px;
+  border-bottom: 2px solid #66788A;
+  border-radius: 2px;
+}
+
+
+.fixture__views a {
+  color: black;
+  text-decoration: none;
+  font: 12px 'Cabin';
+  font-weight: 700;
+  text-transform: uppercase;
+  margin: 0px 10px;
+  padding: 10px 10px;
+  position: relative;
+  z-index: 0;
+  cursor: pointer;
+}
+
+div.greenUnderline a:after {
+  position: absolute;
+  opacity: 0;
+  width: 0%;
+  height: 2px;
+  content: '';
+  background: #2B9348;
+  transition: all 0.3s;
+}
+
+div.greenUnderline a:after {
+  right: 0px;
+  bottom: 0px;
+}
+
+div.greenUnderline a:hover:after {
+  opacity: 1;
+  width: 100%;
+}
+
+.lineups__container {
+  display: flex;
+  justify-content: space-between;
+  width: 90%;
+  margin: 10px auto;
+}
+
+
 

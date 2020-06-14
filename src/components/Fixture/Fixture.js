@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './Fixture.css';
 
 // Routing
-import { useParams, Link } from 'react-router-dom';
+import { useParams, Link, Switch, Route, useRouteMatch } from 'react-router-dom';
 
 //Services
 import footballAPI from '../../services/footballAPI';
@@ -15,6 +15,8 @@ import MainSpinner from '../MainSpinner/MainSpinner';
 
 
 const Fixture = () => {
+  let { path, url } = useRouteMatch();
+
   const { fixtureID } = useParams();
   const [fixtureData, setFixtureData] = useState({})
   const [predictions, setPredictions] = useState({})
@@ -26,6 +28,7 @@ const Fixture = () => {
       .then(predictions => setPredictions(predictions))
   }, [fixtureID]);
 
+  //Dealing with naming variation in API
   const getLeagueName = (leagueID) => {
     switch(leagueID) {
       case 775:
@@ -50,7 +53,7 @@ const Fixture = () => {
           <div className='fixture__header'>
             <div className='fixture__team'>
               <Link to={`/team/${fixtureData.homeTeam.team_id}/${fixtureData.league_id}/${fixtureData.homeTeam.team_name}/${getLeagueName(fixtureData.league_id)}`}>
-                <div className='team__details'>
+                <div className='fixture__team__details'>
                   <img alt="" src={fixtureData.homeTeam.logo} width={125}/>
                 </div>
               </Link>
@@ -70,22 +73,35 @@ const Fixture = () => {
             <div className='fixture__team'>
               <div className='team__score'>{fixtureData.goalsAwayTeam}</div>
               <Link to={`/team/${fixtureData.awayTeam.team_id}/${fixtureData.league_id}/${fixtureData.awayTeam.team_name}/${getLeagueName(fixtureData.league_id)}`}>
-                <div className='team__details'>
+                <div className='fixture__team__details'>
                   <img alt="" src={fixtureData.awayTeam.logo} width={125}/>
                 </div>
               </Link>
             </div>
           </div>
-          <div className="league__views borderXwidth">
-              <button name='overview'>Overview</button>
-              <button name='lineups'>Line-Ups</button>
-              <button name='predictions'>Predictions</button>
+          <div className="fixture__views greenUnderline">
+              <Link to={`${url}/overview`}>Overview</Link>
+              <Link to={`${url}/lineups`}>Line-Ups</Link>
+              <Link to={`${url}/predictions`}>Predictions</Link>
             </div>
           <div>
-            <FixtureStats statistics={fixtureData.statistics}/>
-            <LineUps homeTeam={fixtureData.lineups[fixtureData.homeTeam.team_name]} awayTeam={fixtureData.lineups[fixtureData.awayTeam.team_name]} />
-            <Predictions predictions={predictions} />
-
+            <Switch>
+              <Route exact path={path}>
+                <FixtureStats statistics={fixtureData.statistics}/>
+              </Route>
+              <Route path={`${path}/overview`}>
+                <FixtureStats statistics={fixtureData.statistics}/>
+              </Route>
+              <Route path={`${path}/lineups`}>
+                <div className='lineups__container'> 
+                  <LineUps team={fixtureData.lineups[fixtureData.homeTeam.team_name]} />
+                  <LineUps team={fixtureData.lineups[fixtureData.awayTeam.team_name]} />
+                </div>
+              </Route>
+              <Route path={`${path}/predictions`}>
+                <Predictions predictions={predictions} />
+              </Route>
+            </Switch>
           </div>
         </React.Fragment>
         : <MainSpinner />

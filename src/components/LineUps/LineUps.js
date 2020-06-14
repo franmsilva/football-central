@@ -1,15 +1,26 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import './LineUps.css';
 
-const LineUps = () => (
-  <div className="LineUps">
-    LineUps Component
+// My Components
+import Player from '../Player/Player';
+
+const LineUps = ({team}) => (
+  <div className="lineups">
+    <p><span>Manager:</span> {team.coach}</p>
+    <p><span>Formation:</span> {team.formation}</p>
+    <div className='lineups__starting'> 
+      <h1>Starting XI</h1>
+      {team.startXI.map(player => {
+        return <Player player={player} />
+      })}
+    </div>
+    <div className='lineups__subs'>
+      <h1>Substitutes</h1>
+      {team.substitutes.map(player => {
+        return <Player player={player} />
+      })}
+    </div>
   </div>
 );
-
-LineUps.propTypes = {};
-
-LineUps.defaultProps = {};
 
 export default LineUps;

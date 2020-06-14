@@ -1,0 +1,28 @@
+.player {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 10px 5px;
+  border-bottom: 1px solid #66788A;
+  border-top: 1px solid #66788A;
+  margin-top: 2px;
+}
+
+.player__img {
+  margin-right: 15px;
+  background-color:rgb(93, 181, 100);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  width: 35px;
+  height: 35px;
+}
+
+.player__info {
+  width: 80%;
+}
+
+.player__info span {
+  font-style: italic;
+}
