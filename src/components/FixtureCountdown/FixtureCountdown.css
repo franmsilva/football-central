@@ -1,0 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=Graduate&display=swap');
+
+.fixturecountdown {
+  width: 90%;
+  margin: 10px auto;
+  text-align: center;
+  border-top: 2px solid #66788A;
+  border-radius: 2px;
+  padding-top: 40px;
+  font-size: 30px;
+  font-family: 'Open Sans';
+
+}
+
+.fixturecountdown span {
+  display: block;
+  font-family: 'Graduate', cursive;
+  font-size: 60px;
+}
+
+.fixturecountdown #precountdown {
+  font-size: 30px;
+  font-family: 'Open Sans';
+}

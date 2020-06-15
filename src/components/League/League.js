@@ -19,7 +19,6 @@ const League = () => {
   let { path, url } = useRouteMatch();
 
   const { leagueID, leagueName } = useParams();
-  const [selected, setSelected] = useState('')
   const [leagueInfo, setLeagueInfo] = useState({});
   const [leagueStandings, setLeagueStandings] = useState([])
   const [leagueFixtures, setLeagueFixtures] = useState([])

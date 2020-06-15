@@ -11,7 +11,7 @@ const LineUps = ({team}) => (
     <div className='lineups__starting'> 
       <h1>Starting XI</h1>
       {team.startXI.map(player => {
-        return <Player player={player} />
+        return <Player key={player.player_id} player={player} />
       })}
     </div>
     <div className='lineups__subs'>

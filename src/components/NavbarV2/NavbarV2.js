@@ -6,21 +6,8 @@ import Logo from '../Logo/Logo';
 import { Link } from 'react-router-dom';
 
 const NavbarV2 = () => {
-  const [headerStyle, setHeaderStyle] = useState('main_h');
-
-  useEffect(() => {
-    // Sticky Header
-    window.onscroll = function() {
-      if (window.pageYOffset > 50) {
-        setHeaderStyle(headerStyle => headerStyle + ' sticky');
-      } else {
-        setHeaderStyle(headerStyle => headerStyle.replace('sticky', '').trim())
-      }
-    };
-  })
-
   return (
-    <header className={headerStyle}>
+    <header className="main_h sticky">
       <div className="row">
         <Link to='/'>
           <Logo />
@@ -37,15 +24,5 @@ const NavbarV2 = () => {
     </header>
   );
 }
-
-// // Sticky Header
-// $(window).scroll(function() {
-
-//   if ($(window).scrollTop() > 100) {
-//       $('.main_h').addClass('sticky');
-//   } else {
-//       $('.main_h').removeClass('sticky');
-//   }
-// });
 
 export default NavbarV2;

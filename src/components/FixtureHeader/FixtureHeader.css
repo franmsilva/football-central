@@ -1,0 +1,13 @@
+.FixtureHeader {}
+
+.fulltime {
+  color: rgb(223, 82, 72);
+}
+
+.halftime {
+  color: rgb(246, 232, 123);
+}
+
+.live {
+  color: rgb(178, 205, 102);
+}

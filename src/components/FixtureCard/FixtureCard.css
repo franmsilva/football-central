@@ -87,3 +87,11 @@
   font-weight: 700;
   line-height: 0px;
 }
+
+.fixture__card__status {
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 10px;
+}
+

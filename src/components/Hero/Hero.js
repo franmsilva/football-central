@@ -8,7 +8,7 @@ const Hero = () => (
       Get live scores, predictions and the latest news from the continent's top domestic leagues
     </h1>
 
-    <div class="mouse">
+    <div className="mouse">
       <span></span>
     </div>
   </div>
