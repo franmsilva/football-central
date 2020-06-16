@@ -10,32 +10,34 @@ import newsAPI from '../../services/newsAPI';
 
 // My Components
 import NewsList from '../NewsList/NewsList';
-import FixtureList from '../FixtureList/FixtureList';
 import MainSpinner from '../MainSpinner/MainSpinner';
 import Table from '../Table/Table';
 import TopScorers from '../TopScorers/TopScorers';
+import LeagueFixtures from '../LeagueFixtures/LeagueFixtures';
 
 const League = () => {
   let { path, url } = useRouteMatch();
-
+  
   const { leagueID, leagueName } = useParams();
-  const [leagueInfo, setLeagueInfo] = useState({});
-  const [leagueStandings, setLeagueStandings] = useState([])
-  const [leagueFixtures, setLeagueFixtures] = useState([])
-  const [topScorers, setTopScorers] = useState([])
-  const [leagueNews, setLeagueNews] = useState([])
+  const [ready, setReady] = useState(false);
+  const [leagueStandings, setLeagueStandings] = useState([]);
+  const [topScorers, setTopScorers] = useState([]);
+  const [leagueNews, setLeagueNews] = useState([]);
+  const [currentRound, setCurrentRound] = useState('');
+  const [leagueFixtures, setLeagueFixtures] = useState([]);
 
   useEffect(() => {
-    footballAPI.getLeagueInfo(leagueID)
-      .then(league => setLeagueInfo(league))
     footballAPI.getLeagueStandings(leagueID)
       .then(standings => setLeagueStandings(standings))
-    footballAPI.getLeagueFixtures(leagueID)
-      .then(fixtures => setLeagueFixtures(fixtures))
     footballAPI.getTopScorers(leagueID)
       .then(topScorers => setTopScorers(topScorers.slice(0, 10)))
     newsAPI.getLeagueNews(leagueName)
       .then(news => setLeagueNews(news))
+    footballAPI.getCurrentRound(leagueID)
+      .then(round => setCurrentRound(round))
+    footballAPI.getLeagueFixtures(leagueID)
+      .then(fixtures => setLeagueFixtures(fixtures))
+      .then(() => setReady(true))
   }, [leagueID, leagueName])
 
   const getLeagueTeams = () => {
@@ -48,15 +50,15 @@ const League = () => {
 
   return (
     <div className="League">
-      {leagueInfo.league_id ?
+      {ready ?
           <React.Fragment>
             <div className='league__header'>
               <div className='league__logo'>
-                <img alt="Home Team Logo" src={leagueInfo.logo} width={80}/>
+                <img alt="" src={leagueFixtures[0].league.logo} width={80}/>
               </div>
               <div className='league__details'>
                 <p>COMPETITION</p>
-                <h2>{leagueInfo.name}</h2>
+                <h2>{leagueFixtures[0].league.name}</h2>
               </div>  
             </div>
             <div className="league__views greenUnderline">
@@ -80,7 +82,7 @@ const League = () => {
                   <TopScorers topscorers={topScorers} teams={getLeagueTeams()}/>
                 </Route>
                 <Route path={`${path}/fixtures`}>
-                  <FixtureList fixtures={leagueFixtures} />
+                  <LeagueFixtures fixtures={leagueFixtures} currentRound={currentRound}/>
                 </Route>
               </Switch>
             </div>

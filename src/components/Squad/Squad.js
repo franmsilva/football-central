@@ -12,11 +12,13 @@ import AttTable from '../AttTable/AttTable';
 import MainSpinner from '../MainSpinner/MainSpinner';
 
 const Squad = ({ playerStats }) => {
+  const [ready, setReady] = useState(false)
   const [countries, setCountries] = useState([])
 
   useEffect(() => {
     footballAPI.getCountries()
       .then(countries => setCountries(countries))
+      .then(() => setReady(true))
   }, [])
 
   const getFlags = () => {
@@ -30,7 +32,7 @@ const Squad = ({ playerStats }) => {
 
   return (
     <React.Fragment>
-      {countries.length 
+      {ready 
         ?<div className="Squad">
           <h2>Goalkeepers</h2>
           <GKTable flags={getFlags()} goalkeepers={playerStats.filter(player => player.position === 'Goalkeeper')} />

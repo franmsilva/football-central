@@ -37,60 +37,79 @@ const getYesterdaysFixtures = () => {
     .then(data => data.api.fixtures.filter(fixture => leagueIDs.includes(fixture.league_id)))
 }
 
+// Get all fixture data by fixtureID 
 const getFixtureData = (fixtureID) => {
   return fetchRequest (`fixtures/id/${fixtureID}`)
     .then(data => data.api.fixtures[0])
 }
 
+// Get all predictions data by fixtureID
 const getPredictions = (fixtureID) => {
   return fetchRequest (`predictions/${fixtureID}`)
     .then(data => data.api.predictions[0])
 }
 
+// Get all team info by teamID
 const getTeamInfo = (teamID) => {
   return fetchRequest (`/teams/team/${teamID}`)
     .then(data => data.api.teams[0])
 }
 
+// Get all team stats by teamID and leagueID
 const getTeamStats = (teamID, leagueID) => {
   return fetchRequest (`statistics/${leagueID}/${teamID}`)
     .then(data => data.api.statistics)
 }
+
+// Get all team fixtures by teamID and leagueID
 const getTeamFixtures = (teamID, leagueID) => {
   return fetchRequest (`fixtures/team/${teamID}/${leagueID}`)
     .then(data => data.api.fixtures)
 }
 
+// Get all team players by teamID and season
 const getTeamPlayers = (teamID, season) => {
   return fetchRequest (`players/squad/${teamID}/${season}`)
     .then(data => data.api.players)
 }
 
+// Get player statistics by teamID, season, competition
 const getPlayerStatistics = (teamID, season, competition) => {
   return fetchRequest (`players/team/${teamID}`)
     .then(data => data.api.players.filter(player => player.league === competition && player.season === season && player.games.appearences > 0))
 }
 
+// Get league info by leagueID
 const getLeagueInfo = (leagueID) => {
   return fetchRequest (`leagues/league/${leagueID}`)
     .then(data => data.api.leagues[0])
 }
 
+// Get league standing by leagueID
 const getLeagueStandings = (leagueID) => {
   return fetchRequest (`leagueTable/${leagueID}`)
     .then(data => data.api.standings[0])
 }
 
+// Get all league fixtures by leagueID
 const getLeagueFixtures = (leagueID) => {
   return fetchRequest (`fixtures/league/${leagueID}`)
     .then(data => data.api.fixtures)
 }
 
+// Get league's current round by leagueID
+const getCurrentRound = (leagueID) => {
+  return fetchRequest (`fixtures/rounds/${leagueID}/current`)
+    .then(data => data.api.fixtures[0].split('_-_')[1])
+}
+
+// Get top 10 league scorers by leagueID 
 const getTopScorers = (leagueID) => {
   return fetchRequest (`topscorers/${leagueID}`)
     .then(data => data.api.topscorers.slice(0,10))
 }
 
+// Get all available countries
 const getCountries = () => {
   return fetchRequest (`countries`)
     .then(data => data.api.countries)
@@ -109,6 +128,7 @@ export default {
   getLeagueInfo,
   getLeagueStandings,
   getLeagueFixtures,
+  getCurrentRound,
   getTopScorers,
   getCountries,
 }
