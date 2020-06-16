@@ -19,18 +19,19 @@ import MainSpinner from '../MainSpinner/MainSpinner';
 
 const Fixture = () => {
   const { fixtureID } = useParams();
+  
   const [fixtureStatus, setFixtureStatus] = useState('');
-  const [fixtureData, setFixtureData] = useState({});
   const [predictions, setPredictions] = useState({});
+  const [fixtureData, setFixtureData] = useState({});
   
   useEffect(() => {
-    footballAPI.getFixtureData(fixtureID)
-    .then(fixture => {
-      setFixtureData(fixture)
-      setFixtureStatus(fixture.status) 
-    })
     footballAPI.getPredictions(fixtureID) 
       .then(predictions => setPredictions(predictions))
+    footballAPI.getFixtureData(fixtureID)
+      .then(fixture => {
+        setFixtureData(fixture)
+        setFixtureStatus(fixture.status) 
+      })
   }, [fixtureID]);
 
   useEffect(() =>{ 

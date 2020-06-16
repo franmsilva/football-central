@@ -38,10 +38,20 @@ const Main = ({ breakingNews }) => {
               <h2>Latest News</h2>
               <NewsList news={news.slice(0, 4)} />
               <br />
-              <h2>Today's Action</h2>
-              <FixtureList fixtures={todaysFixtures}/>
-              <h2>Yesterday's Results</h2>
-              <FixtureList fixtures={yesterdaysFixtures}/>
+              {todaysFixtures.length
+                ? <React.Fragment>
+                    <h2>Today's Action</h2> 
+                    <FixtureList fixtures={todaysFixtures}/>
+                  </React.Fragment>
+                : <div>No matches on today <span role='img' aria-label=''>😥</span></div>
+              }
+              {yesterdaysFixtures.length
+                ? <React.Fragment>
+                    <h2>Yesterday's Results</h2>
+                    <FixtureList fixtures={yesterdaysFixtures}/>
+                  </React.Fragment>
+                : <div>No matches on today <span role='img' aria-label=''>😥</span></div>
+              }
             </div>
             <Footer />
           </React.Fragment> 

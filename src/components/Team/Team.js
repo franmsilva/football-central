@@ -17,6 +17,8 @@ import Squad from '../Squad/Squad';
 const Team = () => {
   let { path, url } = useRouteMatch();
   const { teamID, leagueID, teamName, leagueName } = useParams();
+
+  const [ready, setReady] = useState(false);
   const [teamInfo, setTeamInfo] = useState({});
   const [teamFixtures, setTeamFixtures] = useState([]);
   const [playerStats, setPlayerStats] = useState([])
@@ -25,17 +27,18 @@ const Team = () => {
   useEffect(() => {
     footballAPI.getTeamInfo(teamID)
       .then(team => setTeamInfo(team))
+    newsAPI.getTeamNews(teamName)
+      .then(news => setTeamNews(news))
     footballAPI.getTeamFixtures(teamID, leagueID)
       .then(fixtures => setTeamFixtures(fixtures))
     footballAPI.getPlayerStatistics(teamID, '2019-2020', leagueName.replace('-', ' '))
       .then(stats => setPlayerStats(stats))
-    newsAPI.getTeamNews(teamName)
-      .then(news => setTeamNews(news))
+      .then(() => setReady(true))
   }, [teamID, leagueID, teamName, leagueName])
 
   return (
     <div className="Team">
-      {teamInfo.team_id ?
+      {ready ?
           <React.Fragment>
             <div className='team__header'>
               <div className='team__logo'>

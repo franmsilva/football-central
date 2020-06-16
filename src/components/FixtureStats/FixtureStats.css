@@ -12,7 +12,9 @@
   flex-direction: column;
   width: 35%;
   background-color: #ddd;
-  border-radius: 20px;
+  border-radius: 25px;
+  height: 14px;
+  position: relative;
   overflow: hidden;
 }
 
@@ -26,8 +28,7 @@
 .stats__hometeam {
   align-self: flex-end;
   background-color: rgb(66, 91, 141);
-  border-radius: 20px;
-  height: 14px;
+  height: 100%;
 }
 
 .stats__hometeam__value, .stats__awayteam__value {
@@ -38,6 +39,5 @@
 }
 .stats__awayteam {
   background-color: rgb(213, 57, 33);
-  border-radius: 20px;
-  height: 14px;
+  height: 100%;
 }
