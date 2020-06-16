@@ -16,13 +16,16 @@ import Footer from '../Footer/Footer';
 const Main = ({ breakingNews }) => {
   const [ready, setReady] = useState(false)
   const [news, setNews] = useState([]);
-  const [fixtures, setFixtures] = useState([])
+  const [todaysFixtures, setTodaysFixtures] = useState([])
+  const [yesterdaysFixtures, setYesterdaysFixtures] = useState([])
   
   useEffect(() => {
     newsAPI.getBreakingNews()
       .then(articles => setNews(articles))
     footballAPI.getTodaysFixtures()
-      .then(fixtures => setFixtures(fixtures))
+      .then(fixtures => setTodaysFixtures(fixtures))
+    footballAPI.getYesterdaysFixtures()
+      .then(fixtures => setYesterdaysFixtures(fixtures))
       .then(() => setReady(true))
   }, [])
 
@@ -33,10 +36,12 @@ const Main = ({ breakingNews }) => {
             <Hero />
             <div className='main-section'> 
               <h2>Latest News</h2>
-              <NewsList news={news.slice(0, 3)} />
+              <NewsList news={news.slice(0, 4)} />
               <br />
-              <h2>Upcoming Action</h2>
-              <FixtureList fixtures={fixtures}/>
+              <h2>Today's Action</h2>
+              <FixtureList fixtures={todaysFixtures}/>
+              <h2>Yesterday's Results</h2>
+              <FixtureList fixtures={yesterdaysFixtures}/>
             </div>
             <Footer />
           </React.Fragment> 

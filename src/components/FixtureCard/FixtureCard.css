@@ -9,7 +9,12 @@
   justify-content: space-between; 
   align-items: center;
   padding: 0px 10px;
-  border-bottom: 0.1px solid #66788A;
+  border-bottom: 0.1px solid #2B9348;
+  transition: all .3s linear;
+}
+
+.card__header:hover {
+  background-color: #E4E7EB;
 }
 
 .card__header__left {
@@ -38,6 +43,11 @@
   justify-content: space-between;
   align-items: center;
   padding: 5px 10px;
+  transition: all .3s linear;
+}
+
+.card__body:hover {
+  background-color: #E4E7EB;
 }
 
 .card__body__teams {
@@ -71,7 +81,7 @@
 .separator {
   width: 1px;
   height: 80px;
-  background-color: #66788A;
+  background-color: #2B9348;
 }
 
 .card__body__time {

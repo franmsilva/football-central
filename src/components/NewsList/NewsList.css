@@ -1,5 +1,13 @@
 .NewsList {
   display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 100%;
+}
+
+.small__cards__container {
+  display: flex;
+  flex-direction: row;
   flex-flow: row wrap;
   justify-content: space-around;
   width: 100%;
