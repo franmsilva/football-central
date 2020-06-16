@@ -14,12 +14,14 @@ const LeagueFixtures = ({fixtures, currentRound}) => {
   }
 
   return (
-    <div className="LeagueFixtures">
-      <button name='prev' className="previous round" onClick={handleClick}>&#8249;</button>
-      <div>Matchday {selectedMatchday}</div>
-      <button name='next' className="next round" onClick={handleClick}>&#8250;</button>
+    <React.Fragment>
+      <div className='matchday__selector'>
+        <button name='prev' className="previous round" onClick={handleClick}>&#8249;</button>
+        <div className='current__matchday'>Matchday {selectedMatchday}</div>
+        <button name='next' className="next round" onClick={handleClick}>&#8250;</button>
+      </div>
       <FixtureList fixtures={fixtures.filter(fixture => fixture.round.split(' - ')[1] === selectedMatchday)} />
-    </div>
+    </React.Fragment>
   );
 }
 

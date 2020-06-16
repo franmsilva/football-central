@@ -7,15 +7,13 @@ import NewsCardLarge from '../NewsCardLarge/NewsCardLarge';
 
 const NewsList = ({news}) => (
   <div className="NewsList">
-    <NewsCardLarge article={news.shift()} />
+    {news.length ? <NewsCardLarge article={news[0]} /> : null} 
     <div className='small__cards__container'>
-      {news.length ? 
-        news.map(article => {
-          return <NewsCardV2 key={article.url} article={article}/>
-        })
-        : <div className='backup'>You're all caught up <span role='img' aria-label=''>🤓</span></div>
-      }
+      {news.slice(1).map(article => {
+        return <NewsCardV2 article={article} />
+      })}
     </div>
+    {!news.length ? <div className='backup'>You're all caught up <span role='img' aria-label=''>🤓</span></div> : null}
   </div>
 );
 

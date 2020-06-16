@@ -9,7 +9,7 @@ import MainSpinner from '../MainSpinner/MainSpinner'
 
 const NewsCardLarge = ({article}) => (
   <React.Fragment> 
-    {article 
+    {article.source
       ? <div className="card__large">
           <img className="card__large__img" src={article.urlToImage} alt=''/>
           <a href={article.url} rel="noopener noreferrer" target="_blank" >
