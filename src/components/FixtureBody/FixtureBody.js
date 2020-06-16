@@ -23,7 +23,10 @@ const FixtureBody = ({fixtureData, predictions}) => {
       <div>
         <Switch>
           <Route exact path={path}>
-            <FixtureStats statistics={fixtureData.statistics}/>
+            {fixtureData.statistics 
+              ? <FixtureStats statistics={fixtureData.statistics}/> 
+              : <FixtureCountdown startTime={fixtureData.event_date}/>
+            }
           </Route>
           <Route path={`${path}/overview`}>
             {fixtureData.statistics 

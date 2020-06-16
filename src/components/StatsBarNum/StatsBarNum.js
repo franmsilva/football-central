@@ -8,7 +8,7 @@ const StatsBarNum = ({statHome, statAway, statName}) => (
     <div className='stats__container'> 
       <div 
         className='stats__hometeam'
-        style={{width: `${!Number(statHome) || !Number(statAway)
+        style={{width: `${!Number(statHome) && !Number(statAway)
           ? 0 
           : Number(statHome)/(Number(statHome) + Number(statAway))*100}%`}}
       />
@@ -17,7 +17,7 @@ const StatsBarNum = ({statHome, statAway, statName}) => (
     <div className='stats__container'>
         <div 
           className='stats__awayteam' 
-          style={{width: `${!Number(statHome) || !Number(statAway)
+          style={{width: `${!Number(statHome) && !Number(statAway)
             ? 0 
             : Number(statAway)/(Number(statHome) + Number(statAway))*100}%`}}
         />

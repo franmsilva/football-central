@@ -27,6 +27,11 @@ const League = () => {
   const [leagueFixtures, setLeagueFixtures] = useState([]);
 
   useEffect(() => {
+    window.scroll({
+      top: 0, 
+      left: 0, 
+      behavior: 'smooth'
+    });
     footballAPI.getLeagueStandings(leagueID)
       .then(standings => setLeagueStandings(standings))
     footballAPI.getTopScorers(leagueID)

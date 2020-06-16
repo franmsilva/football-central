@@ -24,6 +24,11 @@ const Fixture = () => {
   const [fixtureData, setFixtureData] = useState({});
   
   useEffect(() => {
+    window.scroll({
+      top: 0, 
+      left: 0, 
+      behavior: 'smooth'
+    });
     footballAPI.getPredictions(fixtureID) 
       .then(predictions => setPredictions(predictions))
     footballAPI.getFixtureData(fixtureID)

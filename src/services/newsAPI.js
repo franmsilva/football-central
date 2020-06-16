@@ -18,7 +18,7 @@ const fetchRequest = (url, options = {}) => {
 const getBreakingNews = (date) => {
   return fetchRequest(`top-headlines?category=sports&q=football&from=${moment().format("YYYY-MM-DD")}&apiKey=${API_KEY}`)
     .then(data => data.articles)
-    .then(articles => articles.filter(article => !article.title.includes('NFL') && !article.url.includes('www.sportingnews.com')))
+    .then(articles => articles.filter(article => !article.title.includes('NFL') && !article.title.includes('quarterbacks') && !article.url.includes('www.sportingnews.com') && !article.url.includes('https://tbrfootball.com/')))
 }
 
 const getTeamNews = (teamName) => {

@@ -20,6 +20,11 @@ const Main = ({ breakingNews }) => {
   const [yesterdaysFixtures, setYesterdaysFixtures] = useState([])
   
   useEffect(() => {
+    window.scroll({
+      top: 0, 
+      left: 0, 
+      behavior: 'smooth'
+    });
     newsAPI.getBreakingNews()
       .then(articles => setNews(articles))
     footballAPI.getTodaysFixtures()

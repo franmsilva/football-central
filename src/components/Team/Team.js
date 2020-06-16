@@ -25,6 +25,11 @@ const Team = () => {
   const [teamNews, setTeamNews] = useState([]);
       
   useEffect(() => {
+    window.scroll({
+      top: 0, 
+      left: 0, 
+      behavior: 'smooth'
+    });
     footballAPI.getTeamInfo(teamID)
       .then(team => setTeamInfo(team))
     newsAPI.getTeamNews(teamName)
