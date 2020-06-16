@@ -7,6 +7,7 @@ import { Link, Switch, Route, useRouteMatch } from 'react-router-dom';
 // My Components
 import FixtureStats from '../FixtureStats/FixtureStats';
 import LineUps from '../LineUps/LineUps';
+import FixtureCountdown from '../FixtureCountdown/FixtureCountdown';
 import Predictions from '../Predictions/Predictions';
 
 const FixtureBody = ({fixtureData, predictions}) => {
@@ -25,7 +26,10 @@ const FixtureBody = ({fixtureData, predictions}) => {
             <FixtureStats statistics={fixtureData.statistics}/>
           </Route>
           <Route path={`${path}/overview`}>
-            <FixtureStats statistics={fixtureData.statistics}/>
+            {fixtureData.statistics 
+              ? <FixtureStats statistics={fixtureData.statistics}/> 
+              : <FixtureCountdown startTime={fixtureData.event_date}/>
+            }
           </Route>
           <Route path={`${path}/lineups`}>
             <div className='lineups__container'> 
@@ -34,7 +38,7 @@ const FixtureBody = ({fixtureData, predictions}) => {
                     <LineUps team={fixtureData.lineups[fixtureData.homeTeam.team_name]} />
                     <LineUps team={fixtureData.lineups[fixtureData.awayTeam.team_name]} />
                   </React.Fragment> 
-                : null
+                : <FixtureCountdown startTime={fixtureData.event_date}/>
               }
             </div>
           </Route>
