@@ -1,7 +1,8 @@
-.FixtureStats {
+.StatsBar, .StatsBarNum {
   display: flex;
+  justify-content: center;
   align-items: center;
-  width: 90%;
+  width: 95%;
   margin: 10px auto;
   text-align: center;
 }
@@ -9,14 +10,14 @@
 .stats__container {
   display: flex;
   flex-direction: column;
-  width: 45%;
+  width: 35%;
   background-color: #ddd;
   border-radius: 20px;
   overflow: hidden;
 }
 
 .stats__name {
-  width: 10%;
+  width: 15%;
   color: black;
   font-size: 16px;
   font-weight: 700;
@@ -26,19 +27,17 @@
   align-self: flex-end;
   background-color: rgb(66, 91, 141);
   border-radius: 20px;
-  text-align: left;
-  color: white;
+  height: 14px;
+}
+
+.stats__hometeam__value, .stats__awayteam__value {
+  color: black;
   font-size: 14px;
   font-weight: 700;
   padding: 5px 10px;
 }
-
 .stats__awayteam {
   background-color: rgb(213, 57, 33);
   border-radius: 20px;
-  text-align: right;
-  color: white;
-  font-size: 14px;
-  font-weight: 700;
-  padding: 5px 10px;
+  height: 14px;
 }

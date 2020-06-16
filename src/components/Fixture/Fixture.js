@@ -19,33 +19,49 @@ import MainSpinner from '../MainSpinner/MainSpinner';
 
 const Fixture = () => {
   const { fixtureID } = useParams();
-  const [fixtureStatus, setFixtureStatus] = useState({});
+  const [fixtureStatus, setFixtureStatus] = useState('');
   const [fixtureData, setFixtureData] = useState({});
   const [predictions, setPredictions] = useState({});
-
+  
   useEffect(() => {
     footballAPI.getFixtureData(fixtureID)
-      .then(fixture => {
-        setFixtureData(fixture)
-        setFixtureStatus(fixture.status)
-      })
+    .then(fixture => {
+      setFixtureData(fixture)
+      setFixtureStatus(fixture.status) 
+    })
     footballAPI.getPredictions(fixtureID) 
       .then(predictions => setPredictions(predictions))
   }, [fixtureID]);
 
+  useEffect(() =>{ 
+    if (fixtureStatus !== 'Not Started' || fixtureStatus !== 'Match Finished' || fixtureStatus !== 'Halftime') {
+      const interval = setInterval(() => {
+        footballAPI.getFixtureData(fixtureID)
+          .then(fixture => {
+            setFixtureData(fixture)
+            setFixtureStatus(fixture.status) 
+          })
+        console.log('Data Fetched')
+      }, 10000)
+      return () => clearInterval(interval);
+    }
+  })
+
   return (
-    <div className="fixture">
-      {fixtureData.fixture_id 
-        ? <React.Fragment>
-            <FixtureHeader fixtureStatus={fixtureStatus} fixtureData={fixtureData} />
-            {fixtureStatus === "Not Started" 
-              ? <FixtureCountdown startTime={fixtureData.event_date}/>
-              : <FixtureBody fixtureData={fixtureData} predictions={predictions} />
-            }
-          </React.Fragment>
-        : <MainSpinner />
-      }
-    </div>
+    <React.Fragment>
+      <div className="fixture">
+        {fixtureData.fixture_id 
+          ? <React.Fragment>
+              <FixtureHeader fixtureStatus={fixtureStatus} fixtureData={fixtureData} />
+              {fixtureStatus === "Not Started" 
+                ? <FixtureCountdown startTime={fixtureData.event_date}/>
+                : <FixtureBody fixtureData={fixtureData} predictions={predictions} />
+              }
+            </React.Fragment>
+          : <MainSpinner />
+        }
+      </div>
+    </React.Fragment>
   );
 }
 

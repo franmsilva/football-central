@@ -4,6 +4,7 @@ import './Predictions.css';
 import FixtureList from '../FixtureList/FixtureList';
 import Last5Stats from '../Last5Stats/Last5Stats';
 import MainSpinner from '../MainSpinner/MainSpinner';
+import StatsH2H from '../StatsH2H/StatsH2H';
 
 const Predictions = ({predictions}) => {
   const getMatchWinner = (matchWinner) => {
@@ -24,7 +25,7 @@ const Predictions = ({predictions}) => {
   }
   return (
     <React.Fragment>
-      {predictions ?
+      {predictions.teams ?
         (<div className="predictions">
           <h1>Our Predictions</h1>
           <div className='predictions__container'>
@@ -43,28 +44,7 @@ const Predictions = ({predictions}) => {
           <h1>Last 5 Matches</h1>
           <Last5Stats homeTeam={predictions.teams.home["last_5_matches"]} awayTeam={predictions.teams.away["last_5_matches"]}/>
           <h1>H2H Record</h1>
-          <div className="h2hstats">
-              <div className='h2hstats__container'> 
-                <div 
-                  className='h2hstats__homewin'
-                  style={{width: `${predictions.teams.home["last_h2h"].wins.total/predictions.teams.home["last_h2h"].played.total*100}%`}}
-                >
-                  {predictions.teams.home["last_h2h"].wins.total}
-                </div>
-                <div 
-                  className='h2hstats__draw' 
-                  style={{width: `${predictions.teams.home["last_h2h"].draws.total/predictions.teams.home["last_h2h"].played.total*100}%`}}
-                >
-                  {predictions.teams.home["last_h2h"].draws.total}
-                </div>
-                <div 
-                  className='h2hstats__awaywin' 
-                  style={{width: `${predictions.teams.home["last_h2h"].loses.total/predictions.teams.home["last_h2h"].played.total*100}%`}}
-                >
-                  {predictions.teams.home["last_h2h"].loses.total}
-                </div>
-              </div>
-            </div>
+          <StatsH2H stats={predictions.teams.home} />
           <FixtureList fixtures={predictions['h2h']} />
         </div>)
         : <MainSpinner />

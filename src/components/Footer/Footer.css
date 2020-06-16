@@ -1,4 +1,9 @@
-.Footer {
+.footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 75px;
+  background-color: rgb(93, 181, 100);
   position: absolute;
   bottom: 0;
   width: 100%;

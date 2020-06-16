@@ -10,7 +10,7 @@ const NewsList = ({news}) => (
       news.map(article => {
         return <NewsCardV2 key={article.url} article={article}/>
       })
-      : null 
+      : <div className='backup'>You're all caught up <span role='img' aria-label=''>🤓</span></div>
     }
   </div>
 );

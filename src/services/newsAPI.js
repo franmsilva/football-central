@@ -23,13 +23,13 @@ const getBreakingNews = (date) => {
 
 const getTeamNews = (teamName) => {
   return fetchRequest(
-    `everything?q=${teamName}&from=${moment('2020-06-10').subtract(3, 'days').format("YYYY-MM-DD")}&to=${moment().format("YYYY-MM-DD")}&sortBy=popularity&apiKey=${API_KEY}`
+    `everything?q=${teamName}&from=${moment().subtract(3, 'days').format("YYYY-MM-DD")}&to=${moment().format("YYYY-MM-DD")}&sortBy=relevancy&apiKey=${API_KEY}`
     ).then(data => data.articles.filter(article => article.title.includes(teamName)));
 }
 
 const getLeagueNews = (leagueName) => {
   return fetchRequest(
-    `everything?q=${leagueName}&from=${moment('2020-06-10').subtract(3, 'days').format("YYYY-MM-DD")}&to=${moment().format("YYYY-MM-DD")}&sortBy=popularity&apiKey=${API_KEY}`
+    `everything?q=${leagueName}&from=${moment().subtract(3, 'days').format("YYYY-MM-DD")}&to=${moment().format("YYYY-MM-DD")}&sortBy=relevancy&apiKey=${API_KEY}`
     ).then(data => data.articles.slice(0, 10));
 }
 

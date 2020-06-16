@@ -4,3 +4,9 @@
   justify-content: space-around;
   width: 100%;
 }
+
+div.backup {
+  font-size: 24px;
+  font-family: 'Open Sans';
+  font-weight: 700;
+}

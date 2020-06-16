@@ -14,6 +14,7 @@ const fetchRequest = (url, options = {}) => {
     .then(res => res.json())
     .catch(err => {
       console.log(`${err.message} while fetching /${url}`);
+      console.log(err);
     }) 
 }
 

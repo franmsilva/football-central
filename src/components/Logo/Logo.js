@@ -2,7 +2,7 @@ import React from 'react';
 import './Logo.css';
 
 // Assets 
-import icon from '../../assets/footballer.svg'
+import icon from '../../assets/logo.svg'
 
 const Logo = () => (
   <div className="Logo">
