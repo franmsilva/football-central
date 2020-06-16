@@ -2,7 +2,7 @@
 import moment from 'moment';
 
 // API Constants
-const BASE_URL = 'http://newsapi.org/v2';
+const BASE_URL = 'https://newsapi.org/v2';
 const API_KEY = process.env.REACT_APP_NEWS_API_KEY;
 
 // Fetch Factory 
