@@ -9,7 +9,7 @@ import Container from '@material-ui/core/Container';
 
 import Feed from './feed'
 import { withRouter } from "react-router-dom";
-import { getAllPosts } from "../../redux/actions/postActions";
+import { getAllPosts , deletePost } from "../../redux/actions/postActions";
 import { connect } from "react-redux";
 function SimpleContainer(props) {
     const [feeds, setFeeds] = useState([0,1,2,3,4])
@@ -18,7 +18,7 @@ function SimpleContainer(props) {
  
     useEffect(()=>{
       props.getAllPosts();
-    }, [])
+    },[])
 
     useEffect(()=>{
       if(JSON.stringify(posts) == JSON.stringify(props.posts)) {
@@ -41,7 +41,7 @@ function SimpleContainer(props) {
             {
               posts.length ?
                 posts.map(item => (
-                    <Feed feed={item} />
+                    <Feed  deletePost={deletePost} feed={item} />
                 ))
               :
                   <div>NO POSTS</div>

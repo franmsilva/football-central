@@ -18,6 +18,9 @@ import ShareIcon from '@material-ui/icons/Share';
 
 import MoreVertIcon from '@material-ui/icons/MoreVert';
 import DeleteOutlineIcon from '@material-ui/icons/DeleteOutline';
+
+import { deletePost } from "../../redux/actions/postActions";
+
 const useStyles = makeStyles((theme) => ({
   root: {
     maxWidth: "100%",
@@ -42,18 +45,20 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function RecipeReviewCard(props) {
+function FeedReviewCard(props) {
   const classes = useStyles();
   const [expanded, setExpanded] = React.useState(false);
-  console.log("Feed Item: ", props.feed)
+/*   console.log("Feed Item: ", props.feed)
+ */
+const topic = props.feed.topic;
+const body = props.feed.body;
 
   function handleDelete (){
     alert("Post deleted!")
-
-    props.deletePost({
+     deletePost({
       topic,
-      body,
-    });
+      body, 
+    });  
   }
 
   return (
@@ -104,4 +109,4 @@ function RecipeReviewCard(props) {
   );
 }
 
-export default RecipeReviewCard
+export default FeedReviewCard

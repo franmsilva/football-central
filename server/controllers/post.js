@@ -1,5 +1,4 @@
-const express = require("express");
-const Post = require("../model/Post");
+const Post = require("../models/Post");
 
 
 function createPost (req, res) {
@@ -72,4 +71,5 @@ function getAllPosts (req, res) {
 module.exports = {
     createPost,
     getAllPosts,
+    deletePost,
 };
