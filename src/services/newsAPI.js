@@ -38,9 +38,11 @@ const getLeagueNews = (leagueName) => {
 const getFixtureNews = ({homeTeam, awayTeam, event_date, status}) => {
   event_date = new Date(event_date);
   const isFixtureComplete = (status === 'Match Finished') ? true : false;
+  console.log("getFixtureNews -> isFixtureComplete", isFixtureComplete)
   let fromDate, toDate;
+
   if (isFixtureComplete) {
-    fromDate = moment(event_date).format(); // Grab articles from start time of fixture only
+    fromDate = moment(event_date).format(longForm); // Grab articles starting from the day of the fixture.
     toDate = moment(event_date).add(4, 'days').format(longForm);
   } else {
     fromDate = moment(event_date).subtract(4, 'days').format(longForm);
@@ -51,8 +53,12 @@ const getFixtureNews = ({homeTeam, awayTeam, event_date, status}) => {
     `everything?q=${homeTeam.team_name}&q=${awayTeam.team_name}&from=${fromDate}&to=${toDate}&sortBy=relevancy&apiKey=${API_KEY}`
     ).then(data =>
       (isFixtureComplete)
+      // Include just articles published on or after the fixture start time.
       ? data.articles.filter(article => new Date(article.publishedAt) >= event_date)
-      : data.articles.filter(article => article.title.includes(homeTeam) || article.title.includes(awayTeam))
+      // Include articles with either team name in the title, and sort descending by published date.
+      : data.articles
+        .filter(article => article.title.includes(homeTeam.team_name) || article.title.includes(awayTeam.team_name))
+        .sort((a, b) => new Date(a.publishedAt) < new Date(b.publishedAt) ? 1 : -1)
     )
   }
 
