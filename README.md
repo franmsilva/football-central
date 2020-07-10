@@ -1,68 +1,68 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Football Central 
 
-## Available Scripts
+<p align="center">
+  <img src="/assets/depiktor.png" />
+</p>
 
-In the project directory, you can run:
+A desktop web application that allows users to keep up with latest football news and results. What sets Football Central apart from other apps like it is its predictions functionality, where using an algorithm it provides users with predictions for a given match. 
 
-### `yarn start`
+Check out the live app: https://www.footballcentral.xyz/ 
+**Please Note:** The News API does not provide free access outside of localhost, therefore all news sections will be empty. 
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Screenshots
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+<p align="center">
+  <img src="homescreen.png" />
+</p>
 
-### `yarn test`
+## Getting Started 
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+1. Clone the repo and open in your code editor of choice
 
-### `yarn build`
+```
+git clone https://github.com/fmsilva1996/football-central.git
+```
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+2. Install all required dependencies
+```
+npm install
+```
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+3. Create a .env file with the following variables:
+```
+REACT_APP_NEWS_API_KEY=YOUR_API_KEY_HERE
+REACT_APP_FOOTBALL_API_KEY=YOUR_API_KEY_HERE
+REACT_APP_FOOTBALL_API_HOST=YOUR_API_HOST_HERE
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+4. Start application on localhost:
+```
+npm run start
+```
 
-### `yarn eject`
+5. Enjoy!
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Built With
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+* [React](https://reactjs.org/) - A JavaScript library for building user interfaces
+* [React Router](https://reactrouter.com/web/guides/quick-start) - A collection of navigational components for your React applications
+* [Football API](https://www.api-football.com/) - All football data
+* [News API](https://newsapi.org/) - All news data 
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-## Learn More
+## Contributing
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Improvements are welcome :)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Fork the repo and do your thing. Push to your fork and submit a pull request.
 
-### Code Splitting
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+## Author
 
-### Analyzing the Bundle Size
+Francisco Silva - [Github](https://github.com/fmsilva1996) - [LinkedIn](https://www.linkedin.com/in/fmsilva1996/)
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
 
-### Making a Progressive Web App
+## License
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+This project is licensed under the MIT License.
