@@ -32,23 +32,23 @@ const Squad = ({ playerStats }) => {
 
   return (
     <React.Fragment>
-      {ready 
-        ?<div className="Squad">
-          <h2>Goalkeepers</h2>
-          <GKTable flags={getFlags()} goalkeepers={playerStats.filter(player => player.position === 'Goalkeeper')} />
-          <br />
+      {countries  
+        ? <div className="Squad">
+            <h2>Goalkeepers</h2>
+            <GKTable flags={getFlags()} goalkeepers={playerStats.filter(player => player.position === 'Goalkeeper')} />
+            <br />
 
-          <h2>Defenders</h2>
-          <DefTable flags={getFlags()} defenders={playerStats.filter(player => player.position === 'Defender')}/>
-          <br /> 
+            <h2>Defenders</h2>
+            <DefTable flags={getFlags()} defenders={playerStats.filter(player => player.position === 'Defender')}/>
+            <br /> 
 
-          <h2>Midfielders</h2>
-          <MidTable flags={getFlags()} midfielders={playerStats.filter(player => player.position === 'Midfielder')} />
-          <br />
+            <h2>Midfielders</h2>
+            <MidTable flags={getFlags()} midfielders={playerStats.filter(player => player.position === 'Midfielder')} />
+            <br />
 
-          <h2>Attackers</h2>
-          <AttTable flags={getFlags()} attackers={playerStats.filter(player => player.position === 'Attacker')} />
-        </div>
+            <h2>Attackers</h2>
+            <AttTable flags={getFlags()} attackers={playerStats.filter(player => player.position === 'Attacker')} />
+          </div>
         : <MainSpinner />
       }
     </React.Fragment>
