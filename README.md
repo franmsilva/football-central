@@ -13,7 +13,7 @@ Check out the live app: https://www.footballcentral.xyz/
 ## Screenshots
 
 <p align="center">
-  <img src="assets/homescreen.png" />
+  <img src="assets/total-football.gif" />
 </p>
 
 ## Getting Started 
