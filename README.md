@@ -1,18 +1,19 @@
 # Football Central 
 
 <p align="center">
-  <img src="/assets/depiktor.png" />
+  <img src="assets/logo.png" width='300'/>
 </p>
 
 A desktop web application that allows users to keep up with latest football news and results. What sets Football Central apart from other apps like it is its predictions functionality, where using an algorithm it provides users with predictions for a given match. 
 
 Check out the live app: https://www.footballcentral.xyz/ 
-**Please Note:** The News API does not provide free access outside of localhost, therefore all news sections will be empty. 
+
+**Please Note:** The News API does not provide free access outside of localhost, therefore all news sections in the live app will be empty. 
 
 ## Screenshots
 
 <p align="center">
-  <img src="homescreen.png" />
+  <img src="assets/homescreen.png" />
 </p>
 
 ## Getting Started 
