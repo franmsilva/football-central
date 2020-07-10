@@ -1,7 +1,7 @@
 # Football Central 
 
 <p align="center">
-  <img src="assets/logo.png" width='200'/>
+  <img src="assets/logo.png" width='300'/>
 </p>
 
 A desktop web application that allows users to keep up with latest football news and results. What sets Football Central apart from other apps like it is its predictions functionality, where using an algorithm it provides users with predictions for a given match. 
