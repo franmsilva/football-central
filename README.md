@@ -59,11 +59,12 @@ npm run start
 * Solution to cache data, rather than having to rely on paid APIs for every request
 
 ### Looking to the Future 
-* MOBILE RESPOSIVENESS! 
+* Adopt a mobile first design pattern in future projects
 * Extensive testing (>70% Coverage) with Jest and Jasmine 
 * Server rendering with Next.js?
 * Explore state management solutions with Redux 
 * Get comfortable with CSS grid and thank me later!
+
 
 
 ## Contributing
