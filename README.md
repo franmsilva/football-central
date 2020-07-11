@@ -13,7 +13,7 @@ Check out the live app: https://www.footballcentral.xyz/
 ## Screenshots
 
 <p align="center">
-  <img src="assets/homescreen.png" />
+  <img src="assets/total-football.gif" />
 </p>
 
 ## Getting Started 
@@ -51,10 +51,25 @@ npm run start
 * [Football API](https://www.api-football.com/) - All football data
 * [News API](https://newsapi.org/) - All news data 
 
+## Observations 
+
+### Room For Improvement
+* The CSS could be modularized more, maybe experiment with Styled Components 💅
+* Pull out helper functions and make use of useCallback to reduce load on each rerender
+* Solution to cache data, rather than having to rely on paid APIs for every request
+
+### Looking to the Future 
+* Adopt a mobile first design pattern in future projects
+* Extensive testing (>70% Coverage) with Jest and Jasmine 
+* Server rendering with Next.js?
+* Explore state management solutions with Redux 
+* Get comfortable with CSS grid and thank me later!
+
+
 
 ## Contributing
 
-Improvements are welcome :)
+Improvements are welcome 🙂
 
 Fork the repo and do your thing. Push to your fork and submit a pull request.
 
