@@ -1,6 +1,6 @@
 .hero {
   position: relative;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.5),rgba(0, 0, 0, 0.5)), url(../../assets/hero.jpg);
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/hero.jpg');
   background-position: center center;
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -25,7 +25,7 @@
   font-size: 50px;
   font-weight: 700;
   color: #fff;
-  border-bottom: 2px solid #2B9348;
+  border-bottom: 2px solid #2b9348;
   padding-bottom: 12px;
   line-height: 3;
 }
