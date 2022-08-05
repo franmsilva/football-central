@@ -1,18 +1,16 @@
-import React from 'react';
-import './FixtureList.css';
+import React from 'react'
+import styles from './FixtureList.module.css'
 
-// My Components 
 import FixtureCard from '../FixtureCard/FixtureCard'
 
 const FixtureList = ({ fixtures }) => (
-  <div className="FixtureList">
-    {fixtures.length ? 
-      fixtures.map(fixture => {
-        return <FixtureCard key={fixture.fixture_id} fixture={fixture}/>
-      })
-      : null 
-    }
+  <div className={styles.FixtureList}>
+    {fixtures.length
+      ? fixtures.map((fixture) => {
+          return <FixtureCard key={fixture.fixture_id} fixture={fixture} />
+        })
+      : null}
   </div>
-);
+)
 
-export default FixtureList;
+export default FixtureList

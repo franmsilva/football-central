@@ -3,7 +3,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import moment from 'moment'
 
-import styles from './FixtureCard.css'
+import styles from './FixtureCard.module.css'
 import { APOSTROPHE } from '../../constants/symbols'
 
 const FixtureCard = ({ fixture }) => {
