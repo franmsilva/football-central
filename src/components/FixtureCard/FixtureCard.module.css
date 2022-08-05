@@ -1,0 +1,107 @@
+.card {
+  /* Remaining styles come from NewsCardV2 component */
+  font-family: 'Open Sans';
+  margin-bottom: 20px;
+}
+
+.card__header {
+  display: flex; 
+  justify-content: space-between; 
+  align-items: center;
+  padding: 0px 10px;
+  border-bottom: 0.1px solid #2B9348;
+  transition: all .3s linear;
+}
+
+.card__header:hover {
+  background-color: #E4E7EB;
+}
+
+.card__header__left {
+  display: flex; 
+  align-items: center;
+}
+
+.card__header__left img {
+  margin-right: 10px 
+}
+
+.card__header p {
+  font-size: 12px; 
+  font-weight: 400;
+  color: #66788A
+}
+
+.card__header h3 {
+  font-size: 16px;
+  line-height: 0px;
+  font-weight: 600;
+}
+
+.card__body {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 10px;
+  transition: all .3s linear;
+}
+
+.card__body:hover {
+  background-color: #E4E7EB;
+}
+
+.card__body__teams {
+  width: 80%;
+}
+
+.team {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px;
+}
+
+.team p {
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 10px;
+  margin-right: 10px;
+}
+
+.team__info {
+  display: flex;
+  align-items: center;
+}
+
+.team__info img {
+  margin-right: 10px;
+}
+
+.separator {
+  width: 1px;
+  height: 80px;
+  background-color: #2B9348;
+}
+
+.card__body__time {
+  width: 20%;
+  margin-left: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.card__body__time p {
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 0px;
+}
+
+.fixture__card__status {
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 10px;
+}
+
