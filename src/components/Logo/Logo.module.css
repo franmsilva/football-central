@@ -1,34 +1,33 @@
-.Logo {
+.logo {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.Text { 
+.text {
   display: flex;
-  align-items: center; 
+  align-items: center;
   margin-bottom: 5px;
 }
 
-span {
+.footballText {
   font-size: 25px;
-}
-.Text #football {
   margin-right: 5px;
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Open Sans", sans-serif;
   font-weight: 400;
 }
 
-.Text img {
+.icon {
   height: 40px;
 }
 
-.Text #central {
+.centralText {
   margin-left: 5px;
   font-weight: 700;
+  font-size: 25px;
 }
 
-.Line {
+.line {
   height: 3px;
   width: 283px;
   background-color: black;
