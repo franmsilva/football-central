@@ -1,4 +1,6 @@
-import Head from "next/head";
+import Head from 'next/head'
+import Footer from '../components/Footer/Footer'
+import NavbarV2 from '../components/NavbarV2/NavbarV2'
 
 export default function App({ Component, pageProps }) {
   return (
@@ -9,6 +11,7 @@ export default function App({ Component, pageProps }) {
       </Head>
       <noscript>You need to enable JavaScript to run this app.</noscript>
       <Component {...pageProps} />
+      <Footer />
     </>
-  );
+  )
 }
