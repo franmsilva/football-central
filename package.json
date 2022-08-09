@@ -10,6 +10,8 @@
     "postinstall": "husky install"
   },
   "dependencies": {
+    "axios": "^0.27.2",
+    "date-fns": "^2.29.1",
     "moment": "^2.26.0",
     "next": "^12.2.3",
     "react": "^18.2.0",
