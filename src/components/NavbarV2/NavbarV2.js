@@ -1,9 +1,9 @@
-import React from "react";
-import Link from "next/link";
-import styles from "./NavbarV2.module.css";
+import React from 'react';
+import Link from 'next/link';
+import styles from './NavbarV2.module.css';
 
 // My Components
-import Logo from "../Logo/Logo";
+import Logo from '../Logo/Logo';
 
 const NavbarV2 = () => {
   return (

@@ -2,7 +2,7 @@ import React, { lazy, Suspense } from 'react';
 
 const LazyTopScorers = lazy(() => import('./TopScorers'));
 
-const TopScorers = props => (
+const TopScorers = (props) => (
   <Suspense fallback={null}>
     <LazyTopScorers {...props} />
   </Suspense>

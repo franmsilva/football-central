@@ -18,7 +18,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #F9F9FB;
+  background-color: #f9f9fb;
   margin-right: 20px;
 }
 
@@ -28,7 +28,7 @@
 }
 
 .league__details p {
-  color: #425A70;
+  color: #425a70;
   letter-spacing: 2px;
   font-weight: 500;
 }
@@ -39,7 +39,7 @@
 .league__views {
   display: flex;
   padding: 15px 10px;
-  border-bottom: 2px solid #66788A;
+  border-bottom: 2px solid #66788a;
   border-radius: 2px;
   margin-bottom: 30px;
 }
@@ -76,7 +76,7 @@ div.greenUnderline a:after {
   width: 0%;
   height: 2px;
   content: '';
-  background: #2B9348;
+  background: #2b9348;
   transition: all 0.3s;
 }
 
@@ -89,4 +89,3 @@ div.greenUnderline a:hover:after {
   opacity: 1;
   width: 100%;
 }
-

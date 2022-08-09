@@ -1,10 +1,10 @@
-import React from 'react'
-import Image from 'next/image'
-import Link from 'next/link'
-import moment from 'moment'
+import React from 'react';
+import Image from 'next/image';
+import Link from 'next/link';
+import moment from 'moment';
 
-import styles from './FixtureCard.module.css'
-import { APOSTROPHE } from '../../constants/symbols'
+import styles from './FixtureCard.module.css';
+import { APOSTROPHE } from '../../constants/symbols';
 
 const FixtureCard = ({ fixture }) => {
   const displayFixtureStatus = () => {
@@ -15,7 +15,7 @@ const FixtureCard = ({ fixture }) => {
             <p>{moment(fixture.event_date).format('DD.MM.yyyy')}</p>
             <p>{moment(fixture.event_date).format('HH:mm')}</p>
           </>
-        )
+        );
       case 'Halftime':
         return (
           <>
@@ -25,7 +25,7 @@ const FixtureCard = ({ fixture }) => {
               {APOSTROPHE}
             </div>
           </>
-        )
+        );
       case 'Match Finished':
         return (
           <>
@@ -35,7 +35,7 @@ const FixtureCard = ({ fixture }) => {
               {APOSTROPHE}
             </div>
           </>
-        )
+        );
       default:
         return (
           <>
@@ -45,9 +45,9 @@ const FixtureCard = ({ fixture }) => {
               {APOSTROPHE}
             </div>
           </>
-        )
+        );
     }
-  }
+  };
 
   return (
     <div className={styles.card}>
@@ -83,7 +83,7 @@ const FixtureCard = ({ fixture }) => {
         </div>
       </Link>
     </div>
-  )
-}
+  );
+};
 
-export default FixtureCard
+export default FixtureCard;

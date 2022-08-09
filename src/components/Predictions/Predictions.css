@@ -15,8 +15,8 @@
 }
 
 .predictions__container {
-  background-color: #F9F9FB;
-  border-color: #E4E7EB;
+  background-color: #f9f9fb;
+  border-color: #e4e7eb;
   border-radius: 10px;
   padding: 10px;
 }
@@ -41,7 +41,7 @@
 
 .predictions__container span {
   font-size: 14px;
-  color: #425A70;
+  color: #425a70;
   letter-spacing: 2px;
   font-weight: 400;
 }
@@ -60,13 +60,13 @@
   overflow: hidden;
 }
 
-.h2hstats__homewin{
+.h2hstats__homewin {
   background-color: rgb(66, 91, 141);
 }
 
-.h2hstats__draw{
-  background-color:rgba(67, 90, 111, 0.7)
+.h2hstats__draw {
+  background-color: rgba(67, 90, 111, 0.7);
 }
-.h2hstats__awaywin{
+.h2hstats__awaywin {
   background-color: rgb(213, 57, 33);
 }

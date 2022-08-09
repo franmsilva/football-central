@@ -1,8 +1,8 @@
-import React from 'react'
-import Image from 'next/image'
-import moment from 'moment'
+import React from 'react';
+import Image from 'next/image';
+import moment from 'moment';
 
-import styles from './NewsCardV2.module.css'
+import styles from './NewsCardV2.module.css';
 
 const NewsCardV2 = ({ article }) => (
   <div className={styles.card}>
@@ -20,6 +20,6 @@ const NewsCardV2 = ({ article }) => (
       </div>
     </a>
   </div>
-)
+);
 
-export default NewsCardV2
+export default NewsCardV2;

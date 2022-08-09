@@ -33,13 +33,13 @@
 }
 
 .fixture__details span {
-  color: #425A70;
+  color: #425a70;
   font-weight: 300;
   font-size: 14px;
 }
 
 .fixture__status {
-  margin: 15px 0px
+  margin: 15px 0px;
 }
 
 .fixture__team__details {
@@ -49,23 +49,22 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #F9F9FB;
+  background-color: #f9f9fb;
   margin: 0px 30px;
 }
 
 .team__score {
   font-size: 50px;
-  color: #425A70;
+  color: #425a70;
 }
 
 .fixture__views {
   display: flex;
   padding: 15px 10px;
-  border-bottom: 2px solid #66788A;
+  border-bottom: 2px solid #66788a;
   border-radius: 2px;
   margin-bottom: 20px;
 }
-
 
 .fixture__views a {
   color: black;
@@ -86,7 +85,7 @@ div.greenUnderline a:after {
   width: 0%;
   height: 2px;
   content: '';
-  background: #2B9348;
+  background: #2b9348;
   transition: all 0.3s;
 }
 
@@ -106,6 +105,3 @@ div.greenUnderline a:hover:after {
   width: 90%;
   margin: 10px auto;
 }
-
-
-

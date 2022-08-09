@@ -3,18 +3,19 @@ import './Table.css';
 
 // Routing
 import { useHistory } from 'react-router-dom';
+import Image from 'next/image';
 
-const Table = ({standings, leagueID, leagueName}) => {
+const Table = ({ standings, leagueID, leagueName }) => {
   let history = useHistory();
 
   const handleClick = (teamID, teamName) => {
-    history.push(`/team/${teamID}/${leagueID}/${teamName}/${leagueName}`)
-  }
+    history.push(`/team/${teamID}/${leagueID}/${teamName}/${leagueName}`);
+  };
 
   return (
-    <table id='standings'>
+    <table id="standings">
       <thead>
-        <tr className='table__header'> 
+        <tr className="table__header">
           <th></th>
           <th></th>
           <th>PL</th>
@@ -26,13 +27,13 @@ const Table = ({standings, leagueID, leagueName}) => {
           <th>PTS</th>
         </tr>
       </thead>
-      <tbody> 
-        {standings.map(team => {
-          return ( 
+      <tbody>
+        {standings.map((team) => {
+          return (
             <tr key={team.teamName} onClick={() => handleClick(team.team_id, team.teamName)}>
               <td>{team.rank}</td>
-              <td className='table__team'>
-                <img src={team.logo} width={30} alt='' />
+              <td className="table__team">
+                <Image src={team.logo} width={30} alt="" />
                 <p>{team.teamName}</p>
               </td>
               <td>{team.all.matchsPlayed}</td>
@@ -43,11 +44,11 @@ const Table = ({standings, leagueID, leagueName}) => {
               <td>{team.forme}</td>
               <td>{team.points}</td>
             </tr>
-          )})
-        }
+          );
+        })}
       </tbody>
     </table>
   );
-}
+};
 
 export default Table;

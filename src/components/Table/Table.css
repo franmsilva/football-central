@@ -5,15 +5,15 @@
 }
 
 tr:hover:not(.table__header) {
-  background-color: #F9F9FB;
+  background-color: #f9f9fb;
   cursor: pointer;
 }
 
 td {
-  border-bottom: 1px solid #66788A;
+  border-bottom: 1px solid #66788a;
 }
 
-table td:not(.table__team)  {
+table td:not(.table__team) {
   text-align: center;
   vertical-align: middle;
   position: relative;

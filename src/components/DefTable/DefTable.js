@@ -1,10 +1,11 @@
+import Image from 'next/image';
 import React from 'react';
 import './DefTable.css';
 
-const DefTable = ({flags, defenders}) => (
-  <table id='defenders'>
+const DefTable = ({ flags, defenders }) => (
+  <table id="defenders">
     <thead>
-      <tr className='table__header'> 
+      <tr className="table__header">
         <th></th>
         <th>Apps</th>
         <th>Mins</th>
@@ -17,17 +18,15 @@ const DefTable = ({flags, defenders}) => (
       </tr>
     </thead>
     <tbody>
-      {defenders.map(player => {
-        return ( 
+      {defenders.map((player) => {
+        return (
           <tr key={player.player_id}>
-            <td className='table__player'>
-              <img src={[flags[player.nationality]]} width={20} alt='' />
+            <td className="table__player">
+              <Image src={[flags[player.nationality]]} width={20} alt="" />
               <p>
-              {
-                player.player_name.split(' ').length > 3 
+                {player.player_name.split(' ').length > 3
                   ? `${player.player_name.split(' ')[0]} ${player.player_name.split(' ').pop()}`
-                  : player.player_name
-              }
+                  : player.player_name}
               </p>
             </td>
             <td>{player.games.appearences}</td>
@@ -39,8 +38,8 @@ const DefTable = ({flags, defenders}) => (
             <td>{player.passes.accuracy}%</td>
             <td>{player.goals.total}</td>
           </tr>
-        )})
-      }
+        );
+      })}
     </tbody>
   </table>
 );

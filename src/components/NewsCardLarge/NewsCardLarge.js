@@ -1,10 +1,10 @@
-import React from 'react'
-import Image from 'next/image'
-import moment from 'moment'
+import React from 'react';
+import Image from 'next/image';
+import moment from 'moment';
 
-import Spinner from '../Spinner/Spinner'
+import Spinner from '../Spinner/Spinner';
 
-import styles from './NewsCardLarge.module.css'
+import styles from './NewsCardLarge.module.css';
 
 const NewsCardLarge = ({ article }) => (
   <>
@@ -31,6 +31,6 @@ const NewsCardLarge = ({ article }) => (
       <Spinner />
     )}
   </>
-)
+);
 
-export default NewsCardLarge
+export default NewsCardLarge;

@@ -1,8 +1,8 @@
-import React from 'react'
+import React from 'react';
 
-import { APOSTROPHE } from '../../constants/symbols'
+import { APOSTROPHE } from '../../constants/symbols';
 
-import styles from './Hero.module.css'
+import styles from './Hero.module.css';
 
 const Hero = () => (
   <div className={styles.hero}>
@@ -17,6 +17,6 @@ const Hero = () => (
       <span></span>
     </div>
   </div>
-)
+);
 
-export default Hero
+export default Hero;

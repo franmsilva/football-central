@@ -3,14 +3,14 @@
   align-items: center;
   width: 100%;
   padding: 10px 5px;
-  border-bottom: 1px solid #66788A;
-  border-top: 1px solid #66788A;
+  border-bottom: 1px solid #66788a;
+  border-top: 1px solid #66788a;
   margin-top: 2px;
 }
 
 .player__img {
   margin-right: 15px;
-  background-color:rgb(93, 181, 100);
+  background-color: rgb(93, 181, 100);
   display: flex;
   justify-content: center;
   align-items: center;

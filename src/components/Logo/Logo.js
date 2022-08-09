@@ -1,6 +1,6 @@
-import Image from 'next/image'
-import React from 'react'
-import styles from './Logo.module.css'
+import Image from 'next/image';
+import React from 'react';
+import styles from './Logo.module.css';
 
 const Logo = () => (
   <div className={styles.logo}>
@@ -11,6 +11,6 @@ const Logo = () => (
     </div>
     <div className={styles.line}></div>
   </div>
-)
+);
 
-export default Logo
+export default Logo;

@@ -1,6 +1,6 @@
-import React from 'react'
+import React from 'react';
 
-import styles from './Spinner.module.css'
+import styles from './Spinner.module.css';
 
 const Spinner = () => (
   <div className={styles.spinner}>
@@ -10,6 +10,6 @@ const Spinner = () => (
     <div className={styles.rect4} />
     <div className={styles.rect5} />
   </div>
-)
+);
 
-export default Spinner
+export default Spinner;

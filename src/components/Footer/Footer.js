@@ -1,6 +1,6 @@
-import React from 'react'
-import { COPYRIGHT } from '../../constants/symbols'
-import styles from './Footer.module.css'
+import React from 'react';
+import { COPYRIGHT } from '../../constants/symbols';
+import styles from './Footer.module.css';
 
 const Footer = () => (
   <div className={styles.footer}>
@@ -11,6 +11,6 @@ const Footer = () => (
       </a>
     </div>
   </div>
-)
+);
 
-export default Footer
+export default Footer;

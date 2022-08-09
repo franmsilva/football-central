@@ -1,10 +1,10 @@
 import React from 'react';
 import './App.css';
 
-// Routing 
-import { BrowserRouter, Route, Switch } from 'react-router-dom'
+// Routing
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
-// Components 
+// Components
 import NavbarV2 from '../NavbarV2/NavbarV2';
 import Main from '../Main/Main';
 import Fixture from '../Fixture/Fixture';
@@ -17,10 +17,10 @@ function App() {
       <div className="App">
         <NavbarV2 />
         <Switch>
-          <Route exact path='/' component={Main} />
-          <Route path='/league/:leagueID/:leagueName' component={League} /> 
-          <Route path='/fixture/:fixtureID' component={Fixture} />
-          <Route path='/team/:teamID/:leagueID/:teamName/:leagueName' component={Team} />
+          <Route exact path="/" component={Main} />
+          <Route path="/league/:leagueID/:leagueName" component={League} />
+          <Route path="/fixture/:fixtureID" component={Fixture} />
+          <Route path="/team/:teamID/:leagueID/:teamName/:leagueName" component={Team} />
         </Switch>
       </div>
     </BrowserRouter>

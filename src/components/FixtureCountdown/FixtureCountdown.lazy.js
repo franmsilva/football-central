@@ -2,7 +2,7 @@ import React, { lazy, Suspense } from 'react';
 
 const LazyFixtureCountdown = lazy(() => import('./FixtureCountdown'));
 
-const FixtureCountdown = props => (
+const FixtureCountdown = (props) => (
   <Suspense fallback={null}>
     <LazyFixtureCountdown {...props} />
   </Suspense>

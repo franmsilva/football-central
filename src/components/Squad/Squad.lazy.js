@@ -2,7 +2,7 @@ import React, { lazy, Suspense } from 'react';
 
 const LazySquad = lazy(() => import('./Squad'));
 
-const Squad = props => (
+const Squad = (props) => (
   <Suspense fallback={null}>
     <LazySquad {...props} />
   </Suspense>

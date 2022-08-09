@@ -1,10 +1,11 @@
+import Image from 'next/image';
 import React from 'react';
 import './AttTable.css';
 
-const AttTable = ({flags, attackers}) => (
-  <table id='attackers'>
+const AttTable = ({ flags, attackers }) => (
+  <table id="attackers">
     <thead>
-      <tr className='table__header'> 
+      <tr className="table__header">
         <th></th>
         <th>Apps</th>
         <th>Mins</th>
@@ -20,17 +21,15 @@ const AttTable = ({flags, attackers}) => (
       </tr>
     </thead>
     <tbody>
-      {attackers.map(player => {
-        return ( 
+      {attackers.map((player) => {
+        return (
           <tr key={player.player_id}>
-            <td className='table__player'>
-              <img src={[flags[player.nationality]]} width={20} alt='' />
+            <td className="table__player">
+              <Image src={[flags[player.nationality]]} width={20} alt="" />
               <p>
-              {
-                player.player_name.split(' ').length > 3 
+                {player.player_name.split(' ').length > 3
                   ? `${player.player_name.split(' ')[0]} ${player.player_name.split(' ').pop()}`
-                  : player.player_name
-              }
+                  : player.player_name}
               </p>
             </td>
             <td>{player.games.appearences}</td>
@@ -45,11 +44,10 @@ const AttTable = ({flags, attackers}) => (
             <td>{player.dribbles.attempts}</td>
             <td>{player.dribbles.success}</td>
           </tr>
-        )})
-      }
+        );
+      })}
     </tbody>
   </table>
 );
-
 
 export default AttTable;

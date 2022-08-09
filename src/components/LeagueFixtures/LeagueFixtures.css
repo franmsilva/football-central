@@ -38,7 +38,8 @@ button:focus {
   outline: 0;
 }
 
-.previous, .next {
+.previous,
+.next {
   background-color: #f1f1f1;
   color: black;
 }

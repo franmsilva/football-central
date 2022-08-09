@@ -1,6 +1,6 @@
-#goalkeepers, 
-#defenders, 
-#midfielders, 
+#goalkeepers,
+#defenders,
+#midfielders,
 #attackers {
   width: 90%;
   margin: 0px auto;
@@ -13,15 +13,15 @@
 }
 
 .Squad tr:hover:not(.table__header) {
-  background-color: #F9F9FB;
+  background-color: #f9f9fb;
   cursor: pointer;
 }
 
 .Squad td {
-  border-bottom: 1px solid #66788A;
+  border-bottom: 1px solid #66788a;
 }
 
-.Squad table td:not(.table__team)  {
+.Squad table td:not(.table__team) {
   text-align: center;
   vertical-align: middle;
   position: relative;
