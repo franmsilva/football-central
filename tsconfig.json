@@ -2,6 +2,15 @@
   "compilerOptions": {
     "target": "ES6",
     "lib": ["dom", "dom.iterable", "esnext"],
+    "baseUrl": "./src",
+    "paths": {
+      "@src/*": ["./*"],
+      "@components/*": ["./components/*"],
+      "@constants/*": ["./constants/*"],
+      "@enums/*": ["./enums/*"],
+      "@services/*": ["./services/*"],
+      "@types": ["./types/index.ts"]
+    },
     "allowJs": true,
     "skipLibCheck": true,
     "strict": false,

@@ -7,5 +7,5 @@ export const footballClient = () =>
       'X-RapidAPI-Key': process.env.FOOTBALL_API_KEY,
       'X-RapidAPI-Host': process.env.FOOTBALL_API_HOST,
     },
-    timeout: 10000,
+    timeout: 10000, // 10 seconds in ms
   });

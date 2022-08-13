@@ -1,6 +1,7 @@
-import { TControllerFunc } from '../../types';
+import { FootballAPI } from '@types';
+import { TControllerFunc } from '@services/types';
+
 import { GET_FIXTURES } from '../routes';
-import { FootballAPI } from '../../../types';
 
 interface IGetFixturesConfig {
   params: { date: string };
