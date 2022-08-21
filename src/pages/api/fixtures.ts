@@ -1,7 +1,8 @@
-import type { NextApiRequest, NextApiResponse } from 'next';
 import format from 'date-fns/format';
 
 import { footballCtrl } from '../../services/footballAPI/controllers';
+
+import type { NextApiRequest, NextApiResponse } from 'next';
 
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   const fixtures = await footballCtrl().v1.get.fixtures({

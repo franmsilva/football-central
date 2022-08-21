@@ -1,6 +1,7 @@
 import { IControllerCtx } from '@services/types';
 
 import { footballClient } from '../client';
+
 import { getFixtures } from './fixtures';
 
 export const footballCtrl = () => {

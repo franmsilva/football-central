@@ -1,5 +1,5 @@
-import { FootballAPI } from '@types';
 import { TControllerFunc } from '@services/types';
+import { FootballAPI } from '@types';
 
 import { GET_FIXTURES } from '../routes';
 
