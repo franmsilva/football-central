@@ -1,7 +1,7 @@
 import { FC } from 'react';
 
-const Home: FC = () => {
-  return <h1 className="text-5xl font-bold underline">Hello world!</h1>;
-};
+import NavigationBar from '@src/components/NavigationBar/NavigationBar';
+
+const Home: FC = () => <NavigationBar />;
 
 export default Home;
