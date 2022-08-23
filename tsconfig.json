@@ -5,6 +5,7 @@
     "baseUrl": "./src",
     "paths": {
       "@src/*": ["./*"],
+      "@mocks/*": ["./__mocks__/*"],
       "@components/*": ["./components/*"],
       "@constants/*": ["./constants/*"],
       "@enums/*": ["./enums/*"],
