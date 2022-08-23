@@ -1,7 +1,9 @@
 import * as NextImage from 'next/image';
 import React from 'react';
+import { ThemeProvider } from 'styled-components';
 
-import '../src/styles/globals.css';
+import { GlobalStyles } from '../src/styles/globals';
+import { Theme } from '../src/styles/theme';
 
 const OriginalNextImage = NextImage.default;
 
@@ -66,3 +68,12 @@ export const parameters = {
     },
   },
 };
+
+export const decorators = [
+  (Story) => (
+    <ThemeProvider theme={Theme}>
+      <GlobalStyles />
+      <Story />
+    </ThemeProvider>
+  ),
+];
