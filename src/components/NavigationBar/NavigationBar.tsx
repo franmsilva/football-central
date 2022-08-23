@@ -1,10 +1,12 @@
 import { FC } from 'react';
 
+import * as S from './NavigationBar.styled';
+
 const NavigationBar: FC = () => {
   return (
-    <header className="h-16 flex justify-center border-b border-gray-dark border-opacity-50">
-      <h1 className="font-header font-bold text-white text-lg py-4">TWOFOOTBALL</h1>
-    </header>
+    <S.Header>
+      <S.Heading>TWOFOOTBALL</S.Heading>
+    </S.Header>
   );
 };
 
