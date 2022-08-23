@@ -26,14 +26,14 @@ const customViewports = {
     },
   },
   mobileLarge: {
-    name: 'Tablet',
+    name: 'Mobile Large',
     styles: {
       width: '425px',
       height: '848px',
     },
   },
   tablet: {
-    name: 'Tabled',
+    name: 'Tablet',
     styles: {
       width: '768px',
       height: '848px',
@@ -51,7 +51,7 @@ const customViewports = {
 export const parameters = {
   actions: { argTypesRegex: '^on[A-Z].*' },
   viewport: {
-    defaultViewport: customViewports.mobileMedium,
+    defaultViewport: 'mobileMedium',
     viewports: customViewports,
   },
   layout: 'fullscreen',
