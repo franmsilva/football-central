@@ -10,6 +10,7 @@
       "@constants/*": ["./constants/*"],
       "@enums/*": ["./enums/*"],
       "@services/*": ["./services/*"],
+      "@styles/*": ["./styles/*"],
       "@types": ["./types/index.ts"]
     },
     "allowJs": true,
